@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mechanical Engineering Portfolio</title>
+  <title>Nathan Herrmann Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
@@ -12,7 +12,6 @@
   <!-- Header -->
   <header>
     <h1>Nathan Herrmann Portfolio</h1>
-    <!-- Example nav (optional) -->
     <nav>
       <a href="#">Home</a> |
       <a href="#">Resume / Contact</a>
@@ -21,6 +20,7 @@
 
   <!-- Carousel -->
   <section class="carousel">
+    <!-- The sliding track -->
     <div class="carousel-track">
       <div class="slide">
         <img src="images/ultra1.jpg" alt="quip Ultra" />
@@ -44,25 +44,29 @@
       </div>
     </div>
 
-    <!-- Simple Grey Slider Bar -->
-    <input
-      type="range"
-      class="carousel-range"
-      min="0"
-      max="4"
-      step="1"
-      value="0"
-    />
+    <!-- Slider Container with dots on each side -->
+    <div class="slider-container">
+      <span class="dots">&bull;</span>
+      <input
+        type="range"
+        class="carousel-range"
+        min="0"
+        max="4"
+        step="1"
+        value="0"
+      />
+      <span class="dots">&bull;</span>
+    </div>
   </section>
 
   <!-- About Me -->
   <section class="about">
     <h2>About Me</h2>
     <p>
-      Welcome to my portfolio! I'm a Mechanical Engineer specializing in product
-      design and innovation. Each image is now a fixed 250×250 square—smaller, 
-      uniform, and consistent. Hover the bottom edge for a subtitle, use the slider 
-      below for manual navigation, or let it auto-rotate every 3 seconds.
+      Welcome to my portfolio! I’m a Mechanical Engineer specializing in 
+      product design and innovation. Below is a 16:9 carousel of images— 
+      each scaled up by ~50% compared to the smaller thumbnails, with 
+      a pill-shaped slider and dots to suggest additional images on each side.
     </p>
   </section>
 
