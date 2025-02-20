@@ -38,8 +38,8 @@ header {
 
 .carousel img {
   width: 100%;
-  max-width: 600px; /* optional: limit image size */
-  display: none; /* hide all images by default */
+  max-width: 600px;
+  /* display: none; */ /* COMMENTED OUT for debugging */
   border: 2px solid #ccc;
   box-sizing: border-box;
 }
