@@ -1,82 +1,150 @@
-/* ----------------------------------
-   Global Styles
----------------------------------- */
-body {
-  font-family: Arial, sans-serif;
+/* -----------------------------
+   Base & Global
+----------------------------- */
+* {
   margin: 0;
   padding: 0;
-  text-align: center;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f5f5f5; 
   color: #333;
+  text-align: center;
 }
 
+/* -----------------------------
+   Header
+----------------------------- */
 header {
-  background: #fff;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2f2f2f; /* Dark grey background */
+  padding: 10px 20px;
+  border-bottom: 1px solid #444;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.2rem;
+/* Title on the left (but "right-justified" in the sense that it’s flush to the container’s right side) */
+.header-left {
+  flex: 1; /* takes up space so the nav can shift to the right */
+  text-align: right; 
 }
 
-nav a {
-  color: #666;
+.header-left h1 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-right: 10px;
+}
+
+.header-right {
+  display: flex;
+  gap: 20px;
+}
+
+/* Nav Links */
+.header-right a {
+  color: #ccc;
   text-decoration: none;
-  margin: 0 10px;
-  font-size: 1rem;
+  font-weight: 500;
+  align-self: center;
 }
 
-/* ----------------------------------
+.header-right a:hover {
+  color: #fff;
+}
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  font: inherit;
+  color: #ccc;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dropbtn:hover {
+  color: #fff;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0; 
+  background-color: #444;
+  min-width: 160px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 999;
+  text-align: left;
+}
+
+.dropdown-content a {
+  color: #ccc;
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background: #555;
+  color: #fff;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* -----------------------------
    Carousel
----------------------------------- */
+----------------------------- */
 .carousel {
   position: relative;
   width: 80%;
   margin: 20px auto;
   overflow: hidden;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
-/* Left & right arrow buttons */
+/* Arrows */
 .arrow-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
+  width: 35px;
+  height: 35px;
+  background: transparent;
   border: none;
-  outline: none;
   cursor: pointer;
-  opacity: 0.4; /* faded grey */
+  opacity: 0.5;
   transition: opacity 0.2s;
 }
-
 .arrow-btn:hover {
   opacity: 1;
 }
-
-/* Arrows made with CSS triangles 
-   Adjust color/size as needed 
-*/
 .arrow-left {
-  left: 0;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  border-right: 15px solid #777; /* triangle color */
-  width: 0; 
-  height: 0; 
-  margin-left: 10px; 
+  left: 10px;
+  /* CSS triangle to form < arrow */
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #333;
 }
-
 .arrow-right {
-  right: 0;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  border-left: 15px solid #777;
-  width: 0; 
-  height: 0; 
-  margin-right: 10px;
+  right: 10px;
+  /* CSS triangle for > arrow */
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #333;
 }
 
 .carousel-track {
@@ -92,16 +160,14 @@ nav a {
   position: relative;
 }
 
-/* 16:9 ratio => 600 wide × 338 tall. No border. */
+/* 4:3 => 600×450, no border */
 .slide img {
   width: 600px;
-  height: 338px;
+  height: 450px;
   object-fit: cover;
-  display: block;
-  box-sizing: border-box;
 }
 
-/* Subtitle: text-only on bottom edge */
+/* Text-only subtitle at bottom edge */
 .overlay {
   position: absolute;
   bottom: 8px;
@@ -109,53 +175,50 @@ nav a {
   transform: translateX(-50%);
   font-size: 1rem;
   color: #fff;
-  text-shadow: 0 0 5px #000; /* helps text stand out */
+  text-shadow: 0 0 5px #000;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-
 .slide:hover .overlay {
   opacity: 1;
 }
 
-/* ----------------------------------
-   Pill-shaped slider 
----------------------------------- */
+/* -----------------------------
+   Pill Slider (narrower)
+----------------------------- */
 .carousel-range {
-  width: 80%;
+  width: 300px; /* narrower slider */
   margin: 15px auto 25px auto;
   display: block;
   height: 8px;
   border-radius: 25px;
   outline: none;
-  background: #999; /* fallback color if JS doesn't load */
-  -webkit-appearance: none; /* no default styling */
+  background: #bbb; /* fallback if JS doesn't load */
+  -webkit-appearance: none; /* remove default styling */
+  cursor: pointer;
 }
 
-/* Remove custom thumb styles so the browser default is used */
-.carousel-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
+/* No custom thumb => default pointer 
+   (since you said no special circle needed)
+*/
 
-.carousel-range::-moz-range-thumb {
-  /* no custom styling => browser default */
-}
-
-/* ----------------------------------
+/* -----------------------------
    About Section
----------------------------------- */
+----------------------------- */
 .about {
   padding: 50px;
-  background-color: #f9f9f9;
+  max-width: 900px;
+  margin: 30px auto;
+  text-align: left;
+  color: #555;
 }
 
 .about h2 {
   margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 1.6rem;
 }
 
 .about p {
-  max-width: 700px;
-  margin: 0 auto;
   line-height: 1.6;
-  color: #555;
 }
