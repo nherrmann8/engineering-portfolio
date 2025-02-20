@@ -1,6 +1,8 @@
 const track = document.querySelector(".carousel-track");
 const slides = Array.from(document.querySelectorAll(".slide"));
 const rangeInput = document.querySelector(".carousel-range");
+const arrowLeft = document.querySelector(".arrow-left");
+const arrowRight = document.querySelector(".arrow-right");
 
 let currentIndex = 0;
 const totalSlides = slides.length;
@@ -14,32 +16,40 @@ function goToSlide(index) {
   updateSliderFill(currentIndex);
 }
 
-// Update the slider's pill background to show a partial fill
+// Update slider fill background
 function updateSliderFill(val) {
   const percent = (val / (rangeInput.max - rangeInput.min)) * 100; 
-  // We want a lighter fill on the left, darker on right:
-  // e.g. left portion = #eee, right portion = #999
   rangeInput.style.background = 
-    `linear-gradient(to right, 
-       #eee 0%, 
-       #eee ${percent}%, 
-       #999 ${percent}%, 
+    `linear-gradient(to right,
+       #eee 0%,
+       #eee ${percent}%,
+       #999 ${percent}%,
        #999 100%)`;
 }
 
-// Listen for manual slider movements
+// Arrows: left = -1, right = +1
+arrowLeft.addEventListener("click", () => {
+  goToSlide(currentIndex - 1);
+  resetAutoSlide();
+});
+arrowRight.addEventListener("click", () => {
+  goToSlide(currentIndex + 1);
+  resetAutoSlide();
+});
+
+// Slider input
 rangeInput.addEventListener("input", () => {
   const val = parseInt(rangeInput.value, 10);
   goToSlide(val);
   resetAutoSlide();
 });
 
-// Auto-slide every 3 seconds
+// Auto-slide every 3s
 let autoSlideInterval = setInterval(() => {
   goToSlide(currentIndex + 1);
 }, 3000);
 
-// Reset auto-slide timer
+// Reset auto-slide on user interaction
 function resetAutoSlide() {
   clearInterval(autoSlideInterval);
   autoSlideInterval = setInterval(() => {
@@ -47,6 +57,6 @@ function resetAutoSlide() {
   }, 3000);
 }
 
-// Initialize first slide & slider fill
+// Initialize
 goToSlide(0);
 updateSliderFill(0);
