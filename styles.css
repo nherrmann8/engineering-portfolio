@@ -1,6 +1,6 @@
-/* ------------------------------
-   Global & Header
------------------------------- */
+/* -----------------------------
+   Global
+----------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,9 @@ body {
   color: #333;
 }
 
-/* Header */
+/* -----------------------------
+   Header
+----------------------------- */
 header {
   display: flex;
   align-items: center;
@@ -53,7 +55,6 @@ header {
 .dropbtn:hover {
   color: #fff;
 }
-/* Non-transparent dropdown content */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -78,94 +79,102 @@ header {
   display: block;
 }
 
-/* ------------------------------
+/* -----------------------------
    Carousel
------------------------------- */
-/* Outer container: ensures arrows overlap but are visible. */
+----------------------------- */
 .carousel-section {
-  position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 1200px;
-  margin: 40px auto; /* center horizontally */
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* The viewport shows 3 images at once */
+.carousel-viewport {
+  width: 100%;
+  overflow: hidden; 
+  position: relative;
+  margin-bottom: 10px;
+}
+
+/* The track holds all images in a row, 
+   we transform: translateX(...) to slide */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 20px; /* spacing between images */
+}
+
+/* We'll create each .carousel-item dynamically 
+   in script.js for each image. 
+   The center item is full-size 4:3, side items smaller. 
+*/
+.carousel-item {
+  flex: 0 0 auto; /* don't shrink or grow */
   display: flex;
   align-items: center;
   justify-content: center;
-}
-/* The 3 images in a row, with spacing & relative for overlay. */
-.carousel-track {
-  display: flex;
-  align-items: center;
-  gap: 20px;
   position: relative;
 }
 
-/* Center image => 640×480, side images => 480×360 (25% smaller). */
-#center-img {
+/* Center image => 640×480. 
+   Side images => 480×360 => 25% smaller. 
+   We'll handle in script.js by toggling .center or .side classes.
+*/
+.carousel-item img {
+  object-fit: cover;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+/* The classes we apply in JS to scale/opacity images */
+.center-img {
   width: 640px;
   height: 480px;
-  object-fit: cover;
   opacity: 1;
-  transition: all 0.4s ease;
 }
-#prev-img, 
-#next-img {
+.side-img {
   width: 480px;
   height: 360px;
-  object-fit: cover;
   opacity: 0.5;
-  transition: all 0.4s ease;
-}
-.carousel-track img {
-  cursor: pointer;
 }
 
-/* Subtitle overlay on center image only */
-#center-overlay {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  text-shadow: 0 0 5px #000;
-  font-size: 1rem;
-  pointer-events: none;
+/* Controls below the viewport */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* space between arrows and subtitle */
+  margin-top: 10px;
 }
 
-/* Arrows: absolutely placed so they overlap images but remain visible */
+/* Arrows below the images */
 .arrow-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background: transparent;
+  background: #2f2f2f;
+  color: #fff;
   border: none;
+  padding: 8px 14px;
   cursor: pointer;
-  opacity: 0.6;
+  font-size: 1rem;
+  border-radius: 4px;
+  opacity: 0.7;
   transition: opacity 0.2s;
-  z-index: 10; /* above images */
 }
 .arrow-btn:hover {
   opacity: 1;
 }
-/* Left arrow */
-.arrow-left {
-  left: 10px;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid #333;
-}
-/* Right arrow */
-.arrow-right {
-  right: 10px;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid #333;
+
+/* Subtitle in the center */
+.subtitle {
+  font-size: 1rem;
+  color: #555;
+  min-width: 100px;
+  text-align: center;
 }
 
-/* ------------------------------
+/* -----------------------------
    About
------------------------------- */
+----------------------------- */
 .about {
   width: 80%;
   max-width: 800px;
