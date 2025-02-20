@@ -25,7 +25,7 @@ let autoSlideInterval = setInterval(() => {
   goToSlide(currentIndex + 1);
 }, 3000);
 
-// Reset the auto-slide when user interacts
+// Reset auto-slide on user interaction
 function resetAutoSlide() {
   clearInterval(autoSlideInterval);
   autoSlideInterval = setInterval(() => {
@@ -33,5 +33,5 @@ function resetAutoSlide() {
   }, 3000);
 }
 
-// Initialize the first slide
+// Initialize first slide
 goToSlide(0);
