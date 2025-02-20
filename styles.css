@@ -1,128 +1,96 @@
-/* -----------------------------
-   Base & Global
------------------------------ */
+/* ------------------------------
+   Base
+------------------------------ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Montserrat', sans-serif;
-  background: #f5f5f5; 
+  background: #f5f5f5;
   color: #333;
-  text-align: center;
 }
 
-/* -----------------------------
+/* ------------------------------
    Header
------------------------------ */
+------------------------------ */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* left-justify title */
   align-items: center;
-  background: #2f2f2f; /* Dark grey background */
+  background: #2f2f2f;
   padding: 10px 20px;
-  border-bottom: 1px solid #444;
 }
-
-/* Title on the left (but "right-justified" in the sense that it’s flush to the container’s right side) */
-.header-left {
-  flex: 1; /* takes up space so the nav can shift to the right */
-  text-align: right; 
-}
-
-.header-left h1 {
+.site-title {
   color: #fff;
   font-weight: 600;
-  font-size: 1.8rem;
-  margin-right: 10px;
+  font-size: 1.6rem;
+  margin-right: 40px;
 }
-
-.header-right {
+.nav-links {
+  margin-left: auto; /* push nav to far right */
   display: flex;
   gap: 20px;
+  align-items: center;
 }
-
-/* Nav Links */
-.header-right a {
+.nav-links a {
   color: #ccc;
   text-decoration: none;
-  font-weight: 500;
-  align-self: center;
 }
-
-.header-right a:hover {
+.nav-links a:hover {
   color: #fff;
 }
-
-/* Dropdown Container */
+/* Dropdown */
 .dropdown {
   position: relative;
 }
-
 .dropbtn {
   background: none;
   border: none;
-  font: inherit;
   color: #ccc;
+  font: inherit;
   cursor: pointer;
-  font-weight: 500;
 }
-
 .dropbtn:hover {
   color: #fff;
 }
-
-/* Dropdown Content */
+/* Center the dropdown under "Projects" */
 .dropdown-content {
   display: none;
   position: absolute;
-  right: 0; 
-  background-color: #444;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #444;
   min-width: 160px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  z-index: 999;
   text-align: left;
 }
-
 .dropdown-content a {
-  color: #ccc;
+  display: block;
   padding: 8px 12px;
   text-decoration: none;
-  display: block;
+  color: #ccc;
 }
-
 .dropdown-content a:hover {
   background: #555;
-  color: #fff;
 }
-
-/* Show dropdown on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* -----------------------------
+/* ------------------------------
    Carousel
------------------------------ */
-.carousel {
-  position: relative;
-  width: 80%;
-  margin: 20px auto;
-  overflow: hidden;
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+------------------------------ */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
-
-/* Arrows */
 .arrow-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -133,92 +101,89 @@ header {
   opacity: 1;
 }
 .arrow-left {
-  left: 10px;
-  /* CSS triangle to form < arrow */
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid #333;
+  margin-right: 10px;
+  /* Triangle arrow pointing left */
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #333;
 }
 .arrow-right {
-  right: 10px;
-  /* CSS triangle for > arrow */
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid #333;
+  margin-left: 10px;
+  /* Triangle arrow pointing right */
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid #333;
 }
 
-.carousel-track {
+/* 3 images side by side, main in center */
+.image-wrapper {
   display: flex;
-  transition: transform 0.5s ease;
-}
-
-.slide {
-  min-width: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 20px;
   position: relative;
 }
-
-/* 4:3 => 600×450, no border */
-.slide img {
-  width: 600px;
-  height: 450px;
+.image-wrapper img {
+  width: 450px; /* 4:3 => 450×337.5 approx. Adjust if needed. */
+  height: 337px;
   object-fit: cover;
-}
-
-/* Text-only subtitle at bottom edge */
-.overlay {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1rem;
-  color: #fff;
-  text-shadow: 0 0 5px #000;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-.slide:hover .overlay {
-  opacity: 1;
-}
-
-/* -----------------------------
-   Pill Slider (narrower)
------------------------------ */
-.carousel-range {
-  width: 300px; /* narrower slider */
-  margin: 15px auto 25px auto;
-  display: block;
-  height: 8px;
-  border-radius: 25px;
-  outline: none;
-  background: #bbb; /* fallback if JS doesn't load */
-  -webkit-appearance: none; /* remove default styling */
+  transition: all 0.3s ease;
   cursor: pointer;
 }
+/* center image = full opacity, left/right = 50% */
+#prev-img, #next-img {
+  opacity: 0.5;
+}
+#center-img {
+  opacity: 1;
+}
+/* Overlay on center image only */
+#center-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-shadow: 0 0 5px #000;
+  font-size: 1rem;
+  opacity: 1;
+  pointer-events: none;
+}
 
-/* No custom thumb => default pointer 
-   (since you said no special circle needed)
-*/
+/* ------------------------------
+   Slider
+------------------------------ */
+.carousel-range {
+  display: block;
+  width: 300px; /* narrower pill bar */
+  margin: 0 auto 30px auto;
+  height: 6px;
+  border-radius: 20px;
+  outline: none;
+  background: #666; /* single color track */
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+/* No special thumb => default pointer */
+.carousel-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.carousel-range::-moz-range-thumb {
+  appearance: none;
+}
 
-/* -----------------------------
-   About Section
------------------------------ */
+/* ------------------------------
+   About
+------------------------------ */
 .about {
-  padding: 50px;
-  max-width: 900px;
-  margin: 30px auto;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto 60px auto;
   text-align: left;
-  color: #555;
 }
-
 .about h2 {
-  margin-bottom: 15px;
-  font-weight: 600;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  margin: 20px 0;
 }
-
 .about p {
   line-height: 1.6;
 }
