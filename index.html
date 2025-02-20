@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mechanical Engineering Portfolio</title>
-  <!-- Link to external CSS and JS -->
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
@@ -15,38 +14,41 @@
     <h1>My Mechanical Engineering Portfolio</h1>
   </header>
 
-  <!-- Grid of Projects -->
-  <section class="grid-container">
-    <div class="grid-item">
-      <a href="quip-ultra.html">
-        <img src="images/ultra1.jpg" alt="quip Ultra Project" />
+  <!-- Carousel -->
+  <section class="carousel">
+    <!-- Track that holds all slides horizontally -->
+    <div class="carousel-track">
+      <div class="slide">
+        <img src="images/ultra1.jpg" alt="quip Ultra" />
         <div class="overlay">quip Ultra</div>
-      </a>
-    </div>
-    <div class="grid-item">
-      <a href="quip-water-flosser.html">
+      </div>
+      <div class="slide">
         <img src="images/flosser1.jpg" alt="quip Water Flosser" />
         <div class="overlay">quip Water Flosser</div>
-      </a>
-    </div>
-    <div class="grid-item">
-      <a href="shark-evopower.html">
+      </div>
+      <div class="slide">
         <img src="images/shark1.jpg" alt="Shark EvoPower System" />
         <div class="overlay">Shark EvoPower System</div>
-      </a>
-    </div>
-    <div class="grid-item">
-      <a href="artificial-stomach.html">
+      </div>
+      <div class="slide">
         <img src="images/stomach1.jpg" alt="Artificial Stomach" />
         <div class="overlay">Artificial Stomach</div>
-      </a>
-    </div>
-    <div class="grid-item">
-      <a href="zio-irhythm.html">
+      </div>
+      <div class="slide">
         <img src="images/zio1.jpg" alt="Zio iRhythm" />
         <div class="overlay">Zio iRhythm</div>
-      </a>
+      </div>
     </div>
+
+    <!-- Slider Bar (range input) to manually navigate -->
+    <input
+      type="range"
+      class="carousel-range"
+      min="0"
+      max="4"
+      step="1"
+      value="0"
+    />
   </section>
 
   <!-- About Me Section -->
@@ -54,8 +56,9 @@
     <h2>About Me</h2>
     <p>
       Welcome to my portfolio! I'm a Mechanical Engineer specializing in product
-      design and innovation. These are some of my key projects—hover over each to 
-      see a quick caption, and click to learn more!
+      design and innovation. Below, you can see a sliding carousel of my main 
+      projects. The slider below each image lets you manually scroll through 
+      them, or you can just watch the automatic transitions every 3 seconds.
     </p>
   </section>
 
