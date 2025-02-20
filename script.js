@@ -5,7 +5,7 @@ const rangeInput = document.querySelector(".carousel-range");
 let currentIndex = 0;
 const totalSlides = slides.length;
 
-// Move to a specific slide index
+// Move to a given slide index
 function goToSlide(index) {
   currentIndex = (index + totalSlides) % totalSlides; 
   const offset = -currentIndex * 100; 
@@ -13,7 +13,7 @@ function goToSlide(index) {
   rangeInput.value = currentIndex;
 }
 
-// Listen for slider input
+// Listen for manual slider changes
 rangeInput.addEventListener("input", () => {
   const val = parseInt(rangeInput.value, 10);
   goToSlide(val);
@@ -25,7 +25,7 @@ let autoSlideInterval = setInterval(() => {
   goToSlide(currentIndex + 1);
 }, 3000);
 
-// Reset auto-slide on user interaction
+// Reset auto-slide if user interacts
 function resetAutoSlide() {
   clearInterval(autoSlideInterval);
   autoSlideInterval = setInterval(() => {
