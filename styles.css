@@ -1,6 +1,6 @@
-/* -----------------------------
+/* ------------------------------
    Global & Header
------------------------------ */
+------------------------------ */
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +12,7 @@ body {
   color: #333;
 }
 
+/* Header */
 header {
   display: flex;
   align-items: center;
@@ -52,13 +53,14 @@ header {
 .dropbtn:hover {
   color: #fff;
 }
+/* Non-transparent dropdown content */
 .dropdown-content {
   display: none;
   position: absolute;
   top: 100%;
-  left: 50%; /* center under 'Projects' */
+  left: 50%; 
   transform: translateX(-50%);
-  background: #444; 
+  background: #444; /* fully opaque */
   min-width: 160px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
@@ -76,58 +78,48 @@ header {
   display: block;
 }
 
-/* -----------------------------
+/* ------------------------------
    Carousel
------------------------------ */
-/* Outer container to center the carousel on the page */
-.carousel-outer {
-  padding: 40px 0;
+------------------------------ */
+/* Outer container: ensures arrows overlap but are visible. */
+.carousel-section {
+  position: relative;
   width: 100%;
-  text-align: center;
-}
-/* Inner wrapper with max-width to avoid clipping arrows */
-.carousel-inner {
+  max-width: 1200px;
+  margin: 40px auto; /* center horizontally */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  margin: 0 auto;
-  max-width: 1400px; /* or whichever width you prefer */
-  position: relative;
 }
-
-/* The track with 3 images side-by-side */
+/* The 3 images in a row, with spacing & relative for overlay. */
 .carousel-track {
   display: flex;
   align-items: center;
+  gap: 20px;
   position: relative;
-  transition: transform 0.5s ease; /* sliding anim if we do later */
 }
 
-/* 
-   Center image is 750×560 (4:3 ratio + 25% bigger).
-   Previews are 560×420 => 25% smaller.
-*/
+/* Center image => 640×480, side images => 480×360 (25% smaller). */
 #center-img {
-  width: 750px;
-  height: 560px;
+  width: 640px;
+  height: 480px;
   object-fit: cover;
   opacity: 1;
-  transition: transform 0.5s ease;
+  transition: all 0.4s ease;
 }
 #prev-img, 
 #next-img {
-  width: 560px;
-  height: 420px;
+  width: 480px;
+  height: 360px;
   object-fit: cover;
   opacity: 0.5;
-  transition: transform 0.5s ease, opacity 0.3s ease;
+  transition: all 0.4s ease;
 }
 .carousel-track img {
   cursor: pointer;
 }
 
-/* Overlay text on center image only */
+/* Subtitle overlay on center image only */
 #center-overlay {
   position: absolute;
   bottom: 15px;
@@ -139,8 +131,11 @@ header {
   pointer-events: none;
 }
 
-/* Arrow Buttons => fully visible */
+/* Arrows: absolutely placed so they overlap images but remain visible */
 .arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 40px;
   height: 40px;
   background: transparent;
@@ -148,26 +143,29 @@ header {
   cursor: pointer;
   opacity: 0.6;
   transition: opacity 0.2s;
+  z-index: 10; /* above images */
 }
 .arrow-btn:hover {
   opacity: 1;
 }
+/* Left arrow */
 .arrow-left {
-  /* triangle left */
+  left: 10px;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 10px solid #333;
 }
+/* Right arrow */
 .arrow-right {
-  /* triangle right */
+  right: 10px;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-left: 10px solid #333;
 }
 
-/* -----------------------------
+/* ------------------------------
    About
------------------------------ */
+------------------------------ */
 .about {
   width: 80%;
   max-width: 800px;
