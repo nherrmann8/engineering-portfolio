@@ -1,3 +1,5 @@
+index.html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +17,26 @@
     <!-- Showcase Carousel -->
     <section class="carousel">
         <div class="carousel-container">
-            <a href="project1.html"><img src="images/project1.jpg" class="active"></a>
-            <a href="project2.html"><img src="images/project2.jpg"></a>
-            <a href="project3.html"><img src="images/project3.jpg"></a>
+            <a href="quip-ultra.html" class="carousel-item">
+                <img src="images/ultra1.jpg" class="active">
+                <div class="overlay">quip Ultra</div>
+            </a>
+            <a href="quip-water-flosser.html" class="carousel-item">
+                <img src="images/flosser1.jpg">
+                <div class="overlay">quip Water Flosser</div>
+            </a>
+            <a href="shark-evopower.html" class="carousel-item">
+                <img src="images/shark1.jpg">
+                <div class="overlay">Shark EvoPower System</div>
+            </a>
+            <a href="artificial-stomach.html" class="carousel-item">
+                <img src="images/stomach1.jpg">
+                <div class="overlay">Artificial Stomach</div>
+            </a>
+            <a href="zio-irhythm.html" class="carousel-item">
+                <img src="images/zio1.jpg">
+                <div class="overlay">Zio iRhythm</div>
+            </a>
         </div>
     </section>
 
@@ -28,3 +47,80 @@
     </section>
 </body>
 </html>
+
+styles.css
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background: #222;
+    color: white;
+    padding: 20px;
+}
+
+.carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-item {
+    position: relative;
+    display: inline-block;
+}
+
+.carousel img {
+    width: 100%;
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.carousel-item:hover .overlay {
+    opacity: 1;
+}
+
+.about {
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+script.js
+
+let index = 0;
+const images = document.querySelectorAll(".carousel img");
+
+function showNextImage() {
+    images[index].classList.remove("active");
+    index = (index + 1) % images.length;
+    images[index].classList.add("active");
+}
+
+setInterval(showNextImage, 3000);
+
