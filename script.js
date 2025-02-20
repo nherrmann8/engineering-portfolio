@@ -7,7 +7,7 @@ const arrowRight = document.querySelector(".arrow-right");
 let currentIndex = 0;
 const totalSlides = slides.length;
 
-// Move to a specific slide
+// Move to a specific slide index
 function goToSlide(index) {
   currentIndex = (index + totalSlides) % totalSlides;
   const offset = -currentIndex * 100;
@@ -16,18 +16,18 @@ function goToSlide(index) {
   updateSliderFill(currentIndex);
 }
 
-// Update slider fill background
+// Update the slider's color-fill background
 function updateSliderFill(val) {
-  const percent = (val / (rangeInput.max - rangeInput.min)) * 100; 
+  const percent = (val / (rangeInput.max - rangeInput.min)) * 100;
   rangeInput.style.background = 
     `linear-gradient(to right,
        #eee 0%,
        #eee ${percent}%,
-       #999 ${percent}%,
-       #999 100%)`;
+       #bbb ${percent}%,
+       #bbb 100%)`;
 }
 
-// Arrows: left = -1, right = +1
+// Arrow Buttons
 arrowLeft.addEventListener("click", () => {
   goToSlide(currentIndex - 1);
   resetAutoSlide();
@@ -37,7 +37,7 @@ arrowRight.addEventListener("click", () => {
   resetAutoSlide();
 });
 
-// Slider input
+// Range Input
 rangeInput.addEventListener("input", () => {
   const val = parseInt(rangeInput.value, 10);
   goToSlide(val);
