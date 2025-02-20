@@ -32,28 +32,32 @@
     </nav>
   </header>
 
-  <!-- Carousel -->
+  <!-- Carousel (3-image track) -->
   <section class="carousel-section">
-    <!-- Arrows -->
-    <button class="arrow-btn arrow-left"></button>
-    <div class="carousel-track">
-      <img id="prev-img"   alt="Previous Preview"/>
-      <img id="center-img" alt="Center Image"/>
-      <img id="next-img"   alt="Next Preview"/>
-      <div id="center-overlay" class="overlay">Subtitle</div>
+    <!-- The visible window -->
+    <div class="carousel-viewport">
+      <!-- Track of all images in a row -->
+      <div class="carousel-track" id="carouselTrack">
+        <!-- We'll dynamically create items in script.js for each image,
+             but we place them here as placeholders for structure. -->
+      </div>
     </div>
-    <button class="arrow-btn arrow-right"></button>
+
+    <!-- Controls below the carousel -->
+    <div class="carousel-controls">
+      <button class="arrow-btn arrow-left">&larr;</button>
+      <span id="subtitle" class="subtitle">Subtitle Here</span>
+      <button class="arrow-btn arrow-right">&rarr;</button>
+    </div>
   </section>
 
   <!-- About -->
   <section class="about">
     <h2>About Me</h2>
     <p>
-      This final three-image carousel is properly centered. The middle 
-      image is 640×480, side images are 480×360 (25% smaller), 
-      and the drop-down is fully opaque. Arrows overlap the carousel at 
-      left/right with no clipping. The subtitles are placed at the bottom 
-      of the center image only.
+      This final carousel displays three images at once: a center image (full size, 4:3 ratio),
+      plus smaller previews on the left and right. Arrows are underneath, and the subtitle is 
+      between them. A smooth sliding animation transitions from one set of images to the next.
     </p>
   </section>
 
