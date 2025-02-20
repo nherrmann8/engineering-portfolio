@@ -1,4 +1,4 @@
-/* 5 images with optional subtitles */
+/* 5 images (4:3 ratio) with optional subtitles */
 const images = [
   { src: "images/flosser1.jpg", subtitle: "quip Water Flosser" },
   { src: "images/shark1.jpg",   subtitle: "Shark EvoPower System" },
@@ -10,26 +10,28 @@ const images = [
 let currentIndex = 0;
 const total = images.length;
 
-/* DOM elements */
-const prevImg        = document.getElementById("prev-img");
-const centerImg      = document.getElementById("center-img");
-const nextImg        = document.getElementById("next-img");
-const centerOverlay  = document.getElementById("center-overlay");
-const arrowLeft      = document.querySelector(".arrow-left");
-const arrowRight     = document.querySelector(".arrow-right");
+/* DOM Refs */
+const prevImg       = document.getElementById("prev-img");
+const centerImg     = document.getElementById("center-img");
+const nextImg       = document.getElementById("next-img");
+const centerOverlay = document.getElementById("center-overlay");
+const arrowLeft     = document.querySelector(".arrow-left");
+const arrowRight    = document.querySelector(".arrow-right");
 
 /* Update the 3-image preview */
 function updateCarousel(idx) {
   currentIndex = (idx + total) % total;
 
-  const prevIndex   = (currentIndex - 1 + total) % total;
-  const nextIndex   = (currentIndex + 1) % total;
+  const prevIndex = (currentIndex - 1 + total) % total;
+  const nextIndex = (currentIndex + 1) % total;
 
-  // Assign images
-  centerImg.src     = images[currentIndex].src;
+  // Set center
+  centerImg.src = images[currentIndex].src;
   centerOverlay.textContent = images[currentIndex].subtitle || "";
-  prevImg.src       = images[prevIndex].src;
-  nextImg.src       = images[nextIndex].src;
+  // Left
+  prevImg.src = images[prevIndex].src;
+  // Right
+  nextImg.src = images[nextIndex].src;
 }
 
 /* Navigation */
@@ -41,8 +43,11 @@ function goRight() {
   updateCarousel(currentIndex + 1);
   resetAutoSlide();
 }
+
 arrowLeft.addEventListener("click", goLeft);
 arrowRight.addEventListener("click", goRight);
+
+/* Clicking side images also navigates */
 prevImg.addEventListener("click", goLeft);
 nextImg.addEventListener("click", goRight);
 
@@ -58,5 +63,5 @@ function resetAutoSlide() {
   }, 3000);
 }
 
-/* Initialize */
+/* Init */
 updateCarousel(0);
