@@ -4,14 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nathan Herrmann Portfolio</title>
-  
-  <!-- Google Fonts (Montserrat) -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" 
-    rel="stylesheet" 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+    rel="stylesheet"
   />
-
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
@@ -19,13 +15,9 @@
 
   <!-- Header -->
   <header>
-    <div class="header-left">
-      <!-- Right-justified text, so we’ll push it to the right inside this flex item -->
-      <h1>Nathan Herrmann Portfolio</h1>
-    </div>
-    <nav class="header-right">
+    <h1 class="site-title">Nathan Herrmann Portfolio</h1>
+    <nav class="nav-links">
       <a href="#">Home</a>
-      <!-- Projects with dropdown on hover -->
       <div class="dropdown">
         <button class="dropbtn">Projects</button>
         <div class="dropdown-content">
@@ -40,56 +32,38 @@
     </nav>
   </header>
 
-  <!-- Carousel -->
-  <section class="carousel">
-    <!-- Arrows for manual nav -->
+  <!-- Carousel (3 images visible: prev, center, next) -->
+  <section class="carousel-container">
     <button class="arrow-btn arrow-left"></button>
-    <button class="arrow-btn arrow-right"></button>
 
-    <!-- Sliding track -->
-    <div class="carousel-track">
-      <div class="slide">
-        <img src="images/ultra1.jpg" alt="quip Ultra" />
-        <div class="overlay">quip Ultra</div>
-      </div>
-      <div class="slide">
-        <img src="images/flosser1.jpg" alt="quip Water Flosser" />
-        <div class="overlay">quip Water Flosser</div>
-      </div>
-      <div class="slide">
-        <img src="images/shark1.jpg" alt="Shark EvoPower System" />
-        <div class="overlay">Shark EvoPower System</div>
-      </div>
-      <div class="slide">
-        <img src="images/stomach1.jpg" alt="Artificial Stomach" />
-        <div class="overlay">Artificial Stomach</div>
-      </div>
-      <div class="slide">
-        <img src="images/zio1.jpg" alt="Zio iRhythm" />
-        <div class="overlay">Zio iRhythm</div>
-      </div>
+    <div class="image-wrapper">
+      <img id="prev-img"  src="images/zio1.jpg"   alt="Previous" />
+      <img id="center-img" src="images/flosser1.jpg" alt="Center" />
+      <img id="next-img"  src="images/shark1.jpg"  alt="Next" />
+      <div id="center-overlay" class="overlay">Subtitle</div>
     </div>
 
-    <!-- Narrow pill-shaped slider -->
-    <input
-      type="range"
-      class="carousel-range"
-      min="0"
-      max="4"
-      step="1"
-      value="0"
-    />
+    <button class="arrow-btn arrow-right"></button>
   </section>
 
-  <!-- About Me -->
+  <!-- Slider -->
+  <input
+    type="range"
+    class="carousel-range"
+    min="0"
+    max="4"
+    step="1"
+    value="0"
+  />
+
+  <!-- About -->
   <section class="about">
     <h2>About Me</h2>
     <p>
-      Welcome to my portfolio! I'm a Mechanical Engineer specializing in product 
-      design and innovation. Each image is now a 4:3 aspect ratio (600×450), with 
-      text-only subtitles, plus a narrower pill slider for manual navigation. You 
-      can also click the left/right arrows to cycle through images, or wait for 
-      the auto-rotation every 3 seconds.
+      This is a 3-image preview carousel: the center image is fully opaque, 
+      and the left/right previews are 50% opacity. Click an arrow, a preview, or 
+      move the slider below to cycle images (cyclically). The header is left-justified, 
+      with a centered dropdown on “Projects.”
     </p>
   </section>
 
