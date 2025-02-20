@@ -37,7 +37,48 @@ nav a {
   overflow: hidden;
 }
 
-/* Horizontal sliding track */
+/* Left & right arrow buttons */
+.arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.4; /* faded grey */
+  transition: opacity 0.2s;
+}
+
+.arrow-btn:hover {
+  opacity: 1;
+}
+
+/* Arrows made with CSS triangles 
+   Adjust color/size as needed 
+*/
+.arrow-left {
+  left: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #777; /* triangle color */
+  width: 0; 
+  height: 0; 
+  margin-left: 10px; 
+}
+
+.arrow-right {
+  right: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #777;
+  width: 0; 
+  height: 0; 
+  margin-right: 10px;
+}
+
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease;
@@ -51,26 +92,24 @@ nav a {
   position: relative;
 }
 
-/* 16:9 ratio => 600 wide, 338 tall, no border */
+/* 16:9 ratio => 600 wide × 338 tall. No border. */
 .slide img {
   width: 600px;
   height: 338px;
   object-fit: cover;
   display: block;
   box-sizing: border-box;
-  /* no border */
 }
 
-/* Text-only subtitle on bottom edge */
+/* Subtitle: text-only on bottom edge */
 .overlay {
   position: absolute;
   bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 1rem;
-  color: #fff; 
-  text-shadow: 0 0 5px #000; /* to help text stand out */
-  /* no background: none; */
+  color: #fff;
+  text-shadow: 0 0 5px #000; /* helps text stand out */
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
@@ -80,43 +119,26 @@ nav a {
 }
 
 /* ----------------------------------
-   Pill-shaped Slider with Fill
+   Pill-shaped slider 
 ---------------------------------- */
 .carousel-range {
   width: 80%;
   margin: 15px auto 25px auto;
   display: block;
-  cursor: pointer;
   height: 8px;
   border-radius: 25px;
   outline: none;
-  -webkit-appearance: none; /* remove default webkit styling */
-  background: #999; /* fallback if JS isn't loaded */
+  background: #999; /* fallback color if JS doesn't load */
+  -webkit-appearance: none; /* no default styling */
 }
 
-/* We'll dynamically update the background in script.js 
-   so the 'fill' effect moves as user slides. */
-
-/* Slider thumb (WebKit) */
+/* Remove custom thumb styles so the browser default is used */
 .carousel-range::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid #ccc;
-  margin-top: -5px; 
-  cursor: pointer;
 }
 
-/* Slider thumb (Firefox) */
 .carousel-range::-moz-range-thumb {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid #ccc;
-  cursor: pointer;
+  /* no custom styling => browser default */
 }
 
 /* ----------------------------------
