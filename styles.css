@@ -9,9 +9,21 @@ body {
 }
 
 header {
-  background: #222;
-  color: #fff;
+  background: #fff; /* Example: lighter background to match the reference */
+  color: #333;
   padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+nav a {
+  color: #666;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1rem;
 }
 
 /* ----------------------------
@@ -29,6 +41,7 @@ header {
   transition: transform 0.5s ease; /* sliding animation */
 }
 
+/* Each .slide is full width of container so we can horizontally shift them */
 .slide {
   min-width: 100%;
   display: flex;
@@ -38,23 +51,23 @@ header {
 }
 
 /* 
-   Image: ~30% of container, forced square aspect,
-   smaller visually, with bottom overlay on hover.
+   Fix each image to 250×250 px for a uniform, smaller look 
+   and consistent aspect ratio.
 */
 .slide img {
-  width: 30%;          
-  aspect-ratio: 1 / 1; 
-  object-fit: cover;   
+  width: 250px;
+  height: 250px;
+  object-fit: cover;  /* crops edges if original ratio differs */
   display: block;
   border: 2px solid #ccc;
   box-sizing: border-box;
 }
 
-/* Subtitle (overlay) on the bottom edge */
+/* Subtitle (overlay) on bottom edge */
 .overlay {
   position: absolute;
   bottom: 0;
-  width: 30%; /* match the image's width */
+  width: 250px; /* match the image width exactly */
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.5);
@@ -78,16 +91,15 @@ header {
   width: 80%;
   margin-top: 10px;
   cursor: pointer;
-
-  /* Remove default styling */
-  -webkit-appearance: none; 
+  -webkit-appearance: none; /* remove default webkit styling */
   background: #ccc;
   height: 4px;
   border-radius: 2px;
   outline: none;
+  margin-bottom: 20px;
 }
 
-/* WebKit Thumb (slider handle) */
+/* WebKit thumb styling */
 .carousel-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
@@ -95,11 +107,11 @@ header {
   background: #8e8e8e;
   border-radius: 50%;
   border: 1px solid #999;
-  margin-top: -6px; /* center thumb vertically on track */
+  margin-top: -6px; /* vertically center thumb */
   cursor: pointer;
 }
 
-/* Firefox Thumb */
+/* Firefox thumb styling */
 .carousel-range::-moz-range-thumb {
   width: 16px;
   height: 16px;
