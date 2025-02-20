@@ -1,4 +1,4 @@
-/* 5 images w/ subtitles */
+/* 5 images with optional subtitles */
 const images = [
   { src: "images/flosser1.jpg", subtitle: "quip Water Flosser" },
   { src: "images/shark1.jpg",   subtitle: "Shark EvoPower System" },
@@ -10,50 +10,43 @@ const images = [
 let currentIndex = 0;
 const total = images.length;
 
-/* DOM */
-const prevImg    = document.getElementById("prev-img");
-const centerImg  = document.getElementById("center-img");
-const nextImg    = document.getElementById("next-img");
-const centerOverlay = document.getElementById("center-overlay");
-const arrowLeft  = document.querySelector(".arrow-left");
-const arrowRight = document.querySelector(".arrow-right");
+/* DOM elements */
+const prevImg        = document.getElementById("prev-img");
+const centerImg      = document.getElementById("center-img");
+const nextImg        = document.getElementById("next-img");
+const centerOverlay  = document.getElementById("center-overlay");
+const arrowLeft      = document.querySelector(".arrow-left");
+const arrowRight     = document.querySelector(".arrow-right");
 
-/* Update 3-image layout + overlay subtitle */
+/* Update the 3-image preview */
 function updateCarousel(idx) {
   currentIndex = (idx + total) % total;
-  
-  // indexes for left & right
-  const prevIndex = (currentIndex - 1 + total) % total;
-  const nextIndex = (currentIndex + 1) % total;
 
-  // main (center)
-  centerImg.src = images[currentIndex].src;
+  const prevIndex   = (currentIndex - 1 + total) % total;
+  const nextIndex   = (currentIndex + 1) % total;
+
+  // Assign images
+  centerImg.src     = images[currentIndex].src;
   centerOverlay.textContent = images[currentIndex].subtitle || "";
-  // left (prev)
-  prevImg.src = images[prevIndex].src;
-  // right (next)
-  nextImg.src = images[nextIndex].src;
+  prevImg.src       = images[prevIndex].src;
+  nextImg.src       = images[nextIndex].src;
 }
 
-/* Click events */
-arrowLeft.addEventListener("click", () => {
+/* Navigation */
+function goLeft() {
   updateCarousel(currentIndex - 1);
   resetAutoSlide();
-});
-arrowRight.addEventListener("click", () => {
+}
+function goRight() {
   updateCarousel(currentIndex + 1);
   resetAutoSlide();
-});
-prevImg.addEventListener("click", () => {
-  updateCarousel(currentIndex - 1);
-  resetAutoSlide();
-});
-nextImg.addEventListener("click", () => {
-  updateCarousel(currentIndex + 1);
-  resetAutoSlide();
-});
+}
+arrowLeft.addEventListener("click", goLeft);
+arrowRight.addEventListener("click", goRight);
+prevImg.addEventListener("click", goLeft);
+nextImg.addEventListener("click", goRight);
 
-/* Auto-slide */
+/* Auto-slide every 3s */
 let autoSlide = setInterval(() => {
   updateCarousel(currentIndex + 1);
 }, 3000);
@@ -65,5 +58,5 @@ function resetAutoSlide() {
   }, 3000);
 }
 
-/* Initial */
+/* Initialize */
 updateCarousel(0);
