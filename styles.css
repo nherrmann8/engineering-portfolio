@@ -1,32 +1,86 @@
+/* ----------------------------
+   Global Styles
+---------------------------- */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 header {
-    background: #222;
-    color: white;
-    padding: 20px;
+  background: #222;
+  color: #fff;
+  padding: 20px;
 }
 
+/* ----------------------------
+   Carousel Styles
+---------------------------- */
 .carousel {
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-item {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px; /* space between images if needed */
 }
 
 .carousel img {
-    width: 100%;
-    display: none;
+  width: 100%;
+  max-width: 600px; /* optional: limit image size */
+  display: none; /* hide all images by default */
+  border: 2px solid #ccc;
+  box-sizing: border-box;
 }
 
 .active {
-    display: block;
+  display: block; /* show the current image */
 }
 
+.overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 8px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+
+.carousel-item:hover .overlay {
+  opacity: 1;
+}
+
+/* ----------------------------
+   About Section
+---------------------------- */
 .about {
-    padding: 50px;
-    background-color: #f4f4f4;
+  padding: 50px;
+  background-color: #f4f4f4;
+}
+
+.about h2 {
+  margin-bottom: 15px;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
