@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nathan Herrmann Portfolio</title>
+  
+  <!-- Google Fonts (Montserrat) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" 
+    rel="stylesheet" 
+  />
+
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
@@ -11,16 +19,30 @@
 
   <!-- Header -->
   <header>
-    <h1>Nathan Herrmann Portfolio</h1>
-    <nav>
-      <a href="#">Home</a> |
-      <a href="#">Resume / Contact</a>
+    <div class="header-left">
+      <!-- Right-justified text, so we’ll push it to the right inside this flex item -->
+      <h1>Nathan Herrmann Portfolio</h1>
+    </div>
+    <nav class="header-right">
+      <a href="#">Home</a>
+      <!-- Projects with dropdown on hover -->
+      <div class="dropdown">
+        <button class="dropbtn">Projects</button>
+        <div class="dropdown-content">
+          <a href="#">quip Ultra</a>
+          <a href="#">quip Water Flosser</a>
+          <a href="#">Shark EvoPower System</a>
+          <a href="#">Artificial Stomach</a>
+          <a href="#">Zio iRhythm</a>
+        </div>
+      </div>
+      <a href="#">Resume</a>
     </nav>
   </header>
 
   <!-- Carousel -->
   <section class="carousel">
-    <!-- Arrows -->
+    <!-- Arrows for manual nav -->
     <button class="arrow-btn arrow-left"></button>
     <button class="arrow-btn arrow-right"></button>
 
@@ -48,7 +70,7 @@
       </div>
     </div>
 
-    <!-- Pill-shaped slider below -->
+    <!-- Narrow pill-shaped slider -->
     <input
       type="range"
       class="carousel-range"
@@ -63,10 +85,11 @@
   <section class="about">
     <h2>About Me</h2>
     <p>
-      Welcome to my portfolio! I’m a Mechanical Engineer specializing in product 
-      design and innovation. Below is a 16:9 carousel of images (600×338), 
-      no borders, text-only subtitles, a color-fill slider, and left/right 
-      arrows for manual navigation.
+      Welcome to my portfolio! I'm a Mechanical Engineer specializing in product 
+      design and innovation. Each image is now a 4:3 aspect ratio (600×450), with 
+      text-only subtitles, plus a narrower pill slider for manual navigation. You 
+      can also click the left/right arrows to cycle through images, or wait for 
+      the auto-rotation every 3 seconds.
     </p>
   </section>
 
