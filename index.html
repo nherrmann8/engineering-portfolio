@@ -32,38 +32,27 @@
     </nav>
   </header>
 
-  <!-- Carousel (3 images visible: prev, center, next) -->
+  <!-- Carousel: 3 images (prev, center, next) -->
   <section class="carousel-container">
     <button class="arrow-btn arrow-left"></button>
 
-    <div class="image-wrapper">
-      <img id="prev-img"  src="images/zio1.jpg"   alt="Previous" />
-      <img id="center-img" src="images/flosser1.jpg" alt="Center" />
-      <img id="next-img"  src="images/shark1.jpg"  alt="Next" />
+    <div class="carousel-track">
+      <img id="prev-img"   alt="Previous" />
+      <img id="center-img" alt="Center"   />
+      <img id="next-img"   alt="Next"     />
       <div id="center-overlay" class="overlay">Subtitle</div>
     </div>
 
     <button class="arrow-btn arrow-right"></button>
   </section>
 
-  <!-- Slider -->
-  <input
-    type="range"
-    class="carousel-range"
-    min="0"
-    max="4"
-    step="1"
-    value="0"
-  />
-
   <!-- About -->
   <section class="about">
     <h2>About Me</h2>
     <p>
-      This is a 3-image preview carousel: the center image is fully opaque, 
-      and the left/right previews are 50% opacity. Click an arrow, a preview, or 
-      move the slider below to cycle images (cyclically). The header is left-justified, 
-      with a centered dropdown on “Projects.”
+      3-image preview carousel with 25% size difference. 
+      The center image is larger (4:3 ratio), side previews are smaller at 50% opacity, 
+      arrows are fully visible, and we have a smooth sliding animation when changing images.
     </p>
   </section>
 
