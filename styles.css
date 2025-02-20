@@ -1,6 +1,6 @@
-/* ----------------------------
+/* ----------------------------------
    Global Styles
----------------------------- */
+---------------------------------- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -14,40 +14,30 @@ header {
   padding: 20px;
 }
 
-/* ----------------------------
-   Carousel Styles
----------------------------- */
-.carousel {
+/* ----------------------------------
+   Grid Layout
+---------------------------------- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.grid-item {
   position: relative;
+}
+
+/* Ensures images take full width but maintain aspect ratio */
+.grid-item img {
   max-width: 100%;
-  overflow: hidden;
-  margin-top: 20px;
-}
-
-.carousel-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.carousel-item {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 10px; /* space between images if needed */
-}
-
-.carousel img {
-  width: 100%;
-  max-width: 600px;
-  /* display: none; */ /* COMMENTED OUT for debugging */
+  display: block;
   border: 2px solid #ccc;
   box-sizing: border-box;
 }
 
-.active {
-  display: block; /* show the current image */
-}
-
+/* Overlay text on hover */
 .overlay {
   position: absolute;
   bottom: 10px;
@@ -63,13 +53,13 @@ header {
   border-radius: 4px;
 }
 
-.carousel-item:hover .overlay {
+.grid-item:hover .overlay {
   opacity: 1;
 }
 
-/* ----------------------------
+/* ----------------------------------
    About Section
----------------------------- */
+---------------------------------- */
 .about {
   padding: 50px;
   background-color: #f4f4f4;
