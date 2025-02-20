@@ -1,6 +1,6 @@
-/* ----------------------------------
+/* ----------------------------
    Global Styles
----------------------------------- */
+---------------------------- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -14,24 +14,31 @@ header {
   padding: 20px;
 }
 
-/* ----------------------------------
-   Grid Layout
----------------------------------- */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  justify-items: center;
+/* ----------------------------
+   Carousel Container
+---------------------------- */
+.carousel {
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+  overflow: hidden;
 }
 
-.grid-item {
+/* Track that holds the slides in a row */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease; /* for sliding animation */
+}
+
+/* Each slide is the width of the carousel */
+.slide {
+  min-width: 100%;
   position: relative;
 }
 
-/* Ensures images take full width but maintain aspect ratio */
-.grid-item img {
-  max-width: 100%;
+.slide img {
+  width: 100%;
+  height: auto;
   display: block;
   border: 2px solid #ccc;
   box-sizing: border-box;
@@ -53,13 +60,22 @@ header {
   border-radius: 4px;
 }
 
-.grid-item:hover .overlay {
+.slide:hover .overlay {
   opacity: 1;
 }
 
-/* ----------------------------------
+/* ----------------------------
+   Slider Input
+---------------------------- */
+.carousel-range {
+  width: 80%;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* ----------------------------
    About Section
----------------------------------- */
+---------------------------- */
 .about {
   padding: 50px;
   background-color: #f4f4f4;
