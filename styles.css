@@ -24,40 +24,47 @@ header {
   overflow: hidden;
 }
 
-/* Track that holds the slides in a row */
 .carousel-track {
   display: flex;
-  transition: transform 0.5s ease; /* for sliding animation */
+  transition: transform 0.5s ease; /* sliding animation */
 }
 
-/* Each slide is the width of the carousel */
 .slide {
   min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 
+/* 
+   Image: ~30% of container, forced square aspect,
+   smaller visually, with bottom overlay on hover.
+*/
 .slide img {
-  width: 100%;
-  height: auto;
+  width: 30%;          
+  aspect-ratio: 1 / 1; 
+  object-fit: cover;   
   display: block;
   border: 2px solid #ccc;
   box-sizing: border-box;
 }
 
-/* Overlay text on hover */
+/* Subtitle (overlay) on the bottom edge */
 .overlay {
   position: absolute;
-  bottom: 10px;
+  bottom: 0;
+  width: 30%; /* match the image's width */
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   padding: 8px;
   font-size: 14px;
+  text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  white-space: nowrap;
-  border-radius: 4px;
+  border-radius: 0 0 4px 4px; 
 }
 
 .slide:hover .overlay {
@@ -65,11 +72,40 @@ header {
 }
 
 /* ----------------------------
-   Slider Input
+   Simple Grey Slider
 ---------------------------- */
 .carousel-range {
   width: 80%;
   margin-top: 10px;
+  cursor: pointer;
+
+  /* Remove default styling */
+  -webkit-appearance: none; 
+  background: #ccc;
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+}
+
+/* WebKit Thumb (slider handle) */
+.carousel-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #8e8e8e;
+  border-radius: 50%;
+  border: 1px solid #999;
+  margin-top: -6px; /* center thumb vertically on track */
+  cursor: pointer;
+}
+
+/* Firefox Thumb */
+.carousel-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #8e8e8e;
+  border-radius: 50%;
+  border: 1px solid #999;
   cursor: pointer;
 }
 
