@@ -1,30 +1,22 @@
-// Carousel setup
 const track = document.querySelector(".carousel-track");
 const slides = Array.from(document.querySelectorAll(".slide"));
 const rangeInput = document.querySelector(".carousel-range");
 
-// Current slide index
 let currentIndex = 0;
 const totalSlides = slides.length;
 
-// Move to a given slide index (updates transform)
+// Move to a specific slide index
 function goToSlide(index) {
-  // Keep index in bounds
-  currentIndex = index % totalSlides;
-  if (currentIndex < 0) currentIndex = totalSlides - 1;
-  // Calculate the offset
-  const offset = -currentIndex * 100; // each slide is 100% width
+  currentIndex = (index + totalSlides) % totalSlides; 
+  const offset = -currentIndex * 100; 
   track.style.transform = `translateX(${offset}%)`;
-
-  // Update the range input value
   rangeInput.value = currentIndex;
 }
 
-// Listen for manual slider input
+// Listen for slider input
 rangeInput.addEventListener("input", () => {
   const val = parseInt(rangeInput.value, 10);
   goToSlide(val);
-  // Reset auto-slide timer, so it doesn't immediately jump
   resetAutoSlide();
 });
 
@@ -33,7 +25,7 @@ let autoSlideInterval = setInterval(() => {
   goToSlide(currentIndex + 1);
 }, 3000);
 
-// Reset the auto-slide timer if the user interacts
+// Reset the auto-slide when user interacts
 function resetAutoSlide() {
   clearInterval(autoSlideInterval);
   autoSlideInterval = setInterval(() => {
@@ -41,5 +33,5 @@ function resetAutoSlide() {
   }, 3000);
 }
 
-// Initial slide
+// Initialize the first slide
 goToSlide(0);
