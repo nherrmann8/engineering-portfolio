@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
             img.classList.toggle("active", index === currentIndex);
         });
         caption.textContent = captions[currentIndex];
+
+        // Adjust position to keep the active image centered
+        const offset = images[currentIndex].offsetLeft - (track.offsetWidth / 2) + (images[currentIndex].offsetWidth / 2);
+        track.style.transform = `translateX(-${offset}px)`;
     }
 
     function moveToNext() {
