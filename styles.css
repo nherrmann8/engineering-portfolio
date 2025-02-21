@@ -20,30 +20,6 @@ header {
     z-index: 10;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    padding: 0;
-}
-
-nav ul li {
-    position: relative;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    background: #2A4D85;
-    transition: background 0.3s ease;
-}
-
-nav a:hover {
-    background: #3A5DAF;
-}
-
 /* ✅ Fixed Scrolling Gallery */
 .scrolling-gallery {
     width: 100%;
@@ -58,30 +34,41 @@ nav a:hover {
     animation: scrollLeft 50s linear infinite; /* Adjusted speed */
 }
 
-/* ✅ Fixed About Me Section */
+/* ✅ NEW: About Me Section */
 .about-me {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 50px auto;
+    margin-top: 50px;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
     max-width: 900px;
 }
 
 .about-images {
     display: grid;
-    grid-template-columns: 1fr;
     grid-template-rows: 2fr 1fr;
     gap: 10px;
-    max-width: 300px;
 }
 
-.about-images img {
+.large {
     width: 100%;
     border-radius: 10px;
 }
 
+.small-images {
+    display: flex;
+    gap: 10px;
+}
+
+.small-images img {
+    width: 50%;
+    border-radius: 10px;
+}
+
 .about-text {
-    flex: 1;
-    padding-left: 30px;
     text-align: left;
 }
