@@ -1,24 +1,120 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ JavaScript Loaded Successfully");
+=/* ✅ General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-    const track = document.querySelector(".carousel-track");
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1A1A2E;
+    color: #EAEAEA;
+}
 
-    if (!track) {
-        console.error("❌ ERROR: Carousel track not found!");
-        return;
-    }
+/* ✅ Header */
+header {
+    background: #16213E;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    console.log("✅ Restored Original Carousel Loop");
+.nav-title {
+    margin-left: 20px;
+}
 
-    let clone = track.innerHTML;
-    track.innerHTML += clone; // ✅ Infinite Looping
+.nav-right {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin-right: 20px;
+}
 
-    document.querySelectorAll(".carousel-item img").forEach(img => {
-        img.addEventListener("mouseenter", () => {
-            track.style.animationPlayState = "paused";
-        });
-        img.addEventListener("mouseleave", () => {
-            track.style.animationPlayState = "running";
-        });
-    });
-});
+.nav-right a {
+    color: #EAEAEA;
+    text-decoration: none;
+    background: #533483;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+/* ✅ Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: #533483;
+    border-radius: 10px;
+    width: 180px;
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* ✅ Carousel */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    animation: scrollLeft 65s linear infinite;
+    width: max-content;
+}
+
+.carousel-item img {
+    height: 300px;
+    width: auto;
+}
+
+/* ✅ Subtitles */
+.subtitle {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.carousel-item:hover .subtitle {
+    opacity: 1;
+}
+
+/* ✅ About Me */
+.about-me {
+    width: 80%;
+    margin: 60px auto;
+    padding: 40px;
+    background: #16213E;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-images {
+    display: flex;
+    gap: 10px;
+}
+
+.about-left img {
+    width: 250px;
+    height: 500px;
+}
+
+.about-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about-right img {
+    width: 250px;
+    height: 245px;
+}
