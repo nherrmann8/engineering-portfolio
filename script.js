@@ -19,18 +19,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let scrollAmount = 0;
     const scrollSpeed = 0.5;
+    let isPaused = false;
 
     function moveCarousel() {
-        scrollAmount -= scrollSpeed;
-        track.style.transform = `translateX(${scrollAmount}px)`;
-
-        if (Math.abs(scrollAmount) >= items[0].offsetWidth * items.length) {
-            scrollAmount = 0;
-            track.style.transition = "none";
-            track.style.transform = `translateX(0px)`;
-            setTimeout(() => {
-                track.style.transition = "transform 0.5s linear";
-            }, 50);
+        if (!isPaused) {
+            scrollAmount -= scrollSpeed;
+            track.style.transform = `translateX(${scrollAmount}px)`;
+    
+            if (Math.abs(scrollAmount) >= items[0].offsetWidth * items.length) {
+                scrollAmount = 0;
+                track.style.transition = "none";
+                track.style.transform = `translateX(0px)`;
+                setTimeout(() => {
+                    track.style.transition = "transform 0.5s linear";
+                }, 50);
+            }
         }
 
         requestAnimationFrame(moveCarousel);
@@ -41,10 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅ Stop scrolling on hover
     document.querySelectorAll(".carousel-item img").forEach(img => {
         img.addEventListener("mouseenter", () => {
-            track.style.animationPlayState = "paused";
+            isPaused = true;
         });
         img.addEventListener("mouseleave", () => {
-            track.style.animationPlayState = "running";
+            isPaused = false;
         });
     });
 
