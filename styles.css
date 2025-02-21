@@ -1,26 +1,32 @@
-/* General Styling */
+/* ✅ New Trendy Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #1A1A2E; /* Dark blue-purple */
+    color: #EAEAEA; /* Light gray for text */
     text-align: center;
 }
 
+/* ✅ Enhanced Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #222;
+    background: #16213E; /* Darker shade of blue */
     padding: 20px;
-    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
 }
 
-/* ✅ Fix Dropdown Menu */
+/* ✅ Pill-Shaped Buttons */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px;
     padding: 0;
     position: relative;
 }
@@ -30,33 +36,45 @@ nav ul li {
 }
 
 nav a {
-    color: white;
+    color: #EAEAEA;
     text-decoration: none;
+    font-weight: 400;
+    background: #533483; /* Vibrant purple-blue */
+    padding: 10px 20px;
+    border-radius: 25px; /* Pill shape */
+    transition: background 0.3s ease;
 }
 
-/* Dropdown menu styles */
+nav a:hover {
+    background: #7A3E9D; /* Lighter purple */
+}
+
+/* ✅ Fixed Dropdown Menu */
 .dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #16213E; /* Same as header */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     padding: 10px;
-    width: 180px;
+    width: 200px;
+    border-radius: 15px;
     flex-direction: column;
     z-index: 10;
 }
 
 .dropdown-menu a {
-    color: black;
-    padding: 5px;
+    color: #EAEAEA;
+    padding: 8px 10px;
     display: block;
     text-decoration: none;
+    border-radius: 10px;
 }
 
 .dropdown-menu a:hover {
-    background-color: #ddd;
+    background-color: #533483;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -74,7 +92,7 @@ nav a {
 .image-track {
     display: flex;
     width: max-content;
-    animation: scrollLeft 48.83s linear infinite; /* Slowed down by another 25% */
+    animation: scrollLeft 65s linear infinite; /* Slowed down further */
 }
 
 .image-container {
@@ -88,7 +106,7 @@ nav a {
 }
 
 .image-container img {
-    height: 312.5px; /* Increased size by 25% */
+    height: 312.5px;
     width: auto;
     display: block;
     transition: opacity 0.3s ease-in-out;
@@ -96,10 +114,10 @@ nav a {
 
 /* ✅ Subtitles Only Appear on Hover */
 .subtitle {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    margin-top: 5px;
-    color: #333;
+    margin-top: 8px;
+    color: #EAEAEA;
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s;
