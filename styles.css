@@ -9,13 +9,15 @@ body {
     color: #EAEAEA; /* Light Text */
 }
 
-/* ✅ Header */
+/* ✅ Header (Slightly Lighter Grey) */
 header {
-    background: #181818;
+    background: #1E1E1E; /* Adjusted to a lighter grey */
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 10;
 }
 
 .nav-title {
@@ -48,15 +50,16 @@ header {
     color: #FFD700;
 }
 
-/* ✅ Fixed Dropdown Menu */
+/* ✅ Fixed Dropdown Menu (Now Above Carousel) */
 .dropdown {
     position: relative;
+    z-index: 20; /* Ensures it stays on top */
 }
 
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 45px;
+    top: 50px;
     left: 50%;
     transform: translateX(-50%);
     background: #262626;
@@ -110,11 +113,7 @@ header {
 .carousel-item img {
     height: 320px;
     width: auto;
-    transition: transform 0.3s ease-in-out;
-}
-
-.carousel-item:hover img {
-    transform: scale(1.05);
+    transition: none; /* ✅ Removed zoom effect */
 }
 
 /* ✅ Subtitles on Hover */
@@ -136,23 +135,25 @@ header {
     opacity: 1;
 }
 
-/* ✅ About Me Section (Premium Layout) */
+/* ✅ About Me Section (Final Adjustments) */
 .about-me {
-    width: 90%;
+    width: 85%;
     margin: 100px auto;
-    padding: 60px;
+    padding: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #181818;
+    background: #252525; /* ✅ Adjusted to a lighter grey */
     border-radius: 20px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+/* ✅ Shifted Images Further Left */
 .about-container {
     display: flex;
     align-items: center;
     width: 100%;
+    margin-left: -30px; /* ✅ Universal shift left */
 }
 
 .about-images {
@@ -169,9 +170,21 @@ header {
     border-radius: 10px;
 }
 
+/* ✅ More Buffer Space for Text */
 .about-text {
     flex: 1;
     text-align: left;
     max-width: 50%;
     color: #EAEAEA;
+    margin-left: 30px; /* ✅ Extra buffer space */
+}
+
+/* ✅ Bullet Points Instead of Paragraph */
+.about-text ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.about-text ul li {
+    margin-bottom: 10px;
 }
