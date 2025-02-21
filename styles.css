@@ -1,3 +1,37 @@
+/* ✅ General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* ✅ Header Styling */
+header {
+    background: #1E1E1E;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ✅ Navigation Bar */
+.nav-right {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin-right: 20px;
+}
+
+.nav-right a {
+    color: #EAEAEA;
+    text-decoration: none;
+    background: #533483;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
 /* ✅ Fixed Dropdown Menu (Now Perfectly Aligned) */
 .dropdown {
     position: relative;
@@ -7,10 +41,11 @@
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%; /* ✅ Ensures menu aligns exactly with bottom of button */
+    top: 100%; /* ✅ Aligns exactly with bottom of button */
     left: 50%;
     transform: translateX(-50%);
     background: #262626;
+    border-radius: 8px;
     width: 220px;
     padding: 12px;
     text-align: center;
@@ -39,4 +74,83 @@
 
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+
+/* ✅ Carousel */
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background: #121212;
+    padding: 20px 0;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s linear;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    position: relative;
+}
+
+/* ✅ Subtitles on Hover */
+.subtitle {
+    opacity: 0;
+    position: absolute;
+    bottom: 0px; /* ✅ Now appears at bottom edge */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.carousel-item:hover .subtitle {
+    opacity: 1 !important;
+}
+
+/* ✅ About Me Section */
+.about-me {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1E1E1E;
+    padding: 60px 5%;
+    box-sizing: border-box;
+}
+
+/* ✅ Image Grid (Uniform Spacing) */
+.about-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.about-images {
+    display: flex;
+    gap: 20px; /* ✅ Uniform spacing */
+}
+
+.about-images img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0; /* ✅ No rounded corners */
+}
+
+/* ✅ About Me Text */
+.about-text {
+    flex: 1;
+    text-align: left;
+    color: #EAEAEA;
+    font-size: 18px;
+    max-width: 40%;
+    padding-left: 30px; /* ✅ Adds spacing */
 }
