@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             track.style.transition = "none";
             track.style.transform = "translateX(0)";
             setTimeout(() => {
-                track.style.transition = "transform 39.06s linear";
+                track.style.transition = "transform 48.83s linear";
                 track.style.transform = "translateX(-50%)";
             }, 50);
         }
