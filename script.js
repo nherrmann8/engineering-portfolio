@@ -54,10 +54,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅ Subtitles appear on hover
     document.querySelectorAll(".carousel-item").forEach(item => {
         item.addEventListener("mouseenter", () => {
-            item.querySelector(".subtitle").style.opacity = "1";
+            let subtitle = item.querySelector(".subtitle");
+            if (subtitle) {
+                subtitle.style.opacity = "1";
+            }
         });
         item.addEventListener("mouseleave", () => {
-            item.querySelector(".subtitle").style.opacity = "0";
+            let subtitle = item.querySelector(".subtitle");
+            if (subtitle) {
+                subtitle.style.opacity = "0";
+            }
         });
     });
 });
