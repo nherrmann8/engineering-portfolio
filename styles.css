@@ -159,7 +159,7 @@ header {
     justify-content: space-between;
 }
 
-/* ✅ Self1 & Self2 Side by Side */
+/* ✅ Self1 & Self2 Side by Side - Self3 Removed */
 .about-images {
     display: flex;
     gap: 20px;
