@@ -35,11 +35,29 @@ header {
     background: #533483;
     padding: 10px 20px;
     border-radius: 25px;
-    transition: background 0.3s ease;
 }
 
 .nav-right a:hover {
     background: #7A3E9D;
+}
+
+/* ✅ Fixed Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: #533483;
+    border-radius: 10px;
+    width: 180px;
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
 
 /* ✅ Continuous Carousel */
@@ -51,7 +69,7 @@ header {
 
 .carousel-track {
     display: flex;
-    animation: scrollLeft 25s linear infinite;
+    animation: scrollLeft 65s linear infinite;
     width: max-content;
 }
 
@@ -60,13 +78,14 @@ header {
     width: auto;
 }
 
-@keyframes scrollLeft {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+/* ✅ Subtitle on Hover */
+.subtitle {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.carousel-item:hover .subtitle {
+    opacity: 1;
 }
 
 /* ✅ About Me Section */
@@ -86,13 +105,24 @@ header {
 
 .about-images {
     display: flex;
+    gap: 10px;
+}
+
+.about-left img {
+    width: 250px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.about-right {
+    display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.about-images img {
-    width: 300px;
-    height: auto;
+.about-right img {
+    width: 250px;
+    height: 245px;
     object-fit: cover;
 }
 
