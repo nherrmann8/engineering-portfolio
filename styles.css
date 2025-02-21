@@ -138,7 +138,7 @@ header {
     opacity: 1;
 }
 
-/* ✅ About Me Section - Fixing Image Spacing */
+/* ✅ About Me Section - Evenly Spaced */
 .about-me {
     width: 85%;
     margin: 100px auto;
@@ -159,6 +159,7 @@ header {
     justify-content: space-between;
 }
 
+/* ✅ Self1 & Self2 Side by Side */
 .about-images {
     display: flex;
     gap: 20px;
@@ -166,19 +167,11 @@ header {
     justify-content: center;
 }
 
-/* ✅ Balanced Layout for Images */
-.about-left img,
-.about-right img {
-    width: 280px;
+.about-images img {
+    width: 300px;
     height: 500px;
     object-fit: cover;
     border-radius: 10px;
-}
-
-.about-right {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
 
 /* ✅ More Buffer Space for Text */
