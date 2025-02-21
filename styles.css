@@ -9,9 +9,9 @@ body {
     color: #EAEAEA; /* Light Text */
 }
 
-/* ✅ Header (Slightly Lighter Grey) */
+/* ✅ Header */
 header {
-    background: #1E1E1E; /* Adjusted to a lighter grey */
+    background: #1E1E1E; /* Slightly lighter grey */
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -50,7 +50,7 @@ header {
     color: #FFD700;
 }
 
-/* ✅ Fixed Dropdown Menu (Now Above Carousel) */
+/* ✅ Fixed Dropdown Menu */
 .dropdown {
     position: relative;
     z-index: 20; /* Ensures it stays on top */
@@ -63,7 +63,6 @@ header {
     left: 50%;
     transform: translateX(-50%);
     background: #262626;
-    border-radius: 8px;
     width: 220px;
     padding: 12px;
     text-align: center;
@@ -113,7 +112,7 @@ header {
 .carousel-item img {
     height: 320px;
     width: auto;
-    transition: none; /* ✅ Removed zoom effect */
+    transition: none;
 }
 
 /* ✅ Subtitles on Hover */
@@ -123,10 +122,9 @@ header {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
+    background: rgba(255, 255, 255, 0.9);
+    color: #FFFFFF; /* Matches header font color */
     padding: 6px 12px;
-    border-radius: 5px;
     font-size: 14px;
     transition: opacity 0.3s ease-in-out;
 }
@@ -137,23 +135,21 @@ header {
 
 /* ✅ About Me Section (Final Adjustments) */
 .about-me {
-    width: 85%;
-    margin: 100px auto;
-    padding: 50px;
+    width: 100%; /* ✅ Extended to full width */
+    margin: 100px 0;
+    padding: 50px 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #252525; /* ✅ Adjusted to a lighter grey */
-    border-radius: 20px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    background: #252525;
 }
 
-/* ✅ Shifted Images Further Left */
+/* ✅ Equal Image Spacing & No Rounded Corners */
 .about-container {
     display: flex;
     align-items: center;
     width: 100%;
-    margin-left: -30px; /* ✅ Universal shift left */
+    gap: 20px;
 }
 
 .about-images {
@@ -164,22 +160,22 @@ header {
 .about-left img,
 .about-center img,
 .about-right img {
-    width: 280px;
-    height: 500px;
+    width: 30%; /* ✅ Equal widths */
+    height: auto;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 0; /* ✅ Removed rounded corners */
 }
 
-/* ✅ More Buffer Space for Text */
+/* ✅ Extra Space Between Images & Text */
 .about-text {
     flex: 1;
     text-align: left;
-    max-width: 50%;
+    max-width: 40%;
     color: #EAEAEA;
-    margin-left: 30px; /* ✅ Extra buffer space */
+    padding-left: 40px; /* ✅ Extra spacing */
 }
 
-/* ✅ Bullet Points Instead of Paragraph */
+/* ✅ Bullet Points for About Me */
 .about-text ul {
     list-style: disc;
     padding-left: 20px;
