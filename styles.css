@@ -1,62 +1,32 @@
-/* ✅ New Trendy Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
+/* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1A1A2E; /* Dark blue-purple */
-    color: #EAEAEA; /* Light gray for text */
+    background-color: #173B6C; /* Slightly bluer shade */
+    color: #EAEAEA;
     text-align: center;
 }
 
-/* ✅ Enhanced Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #16213E; /* Darker shade of blue */
+    background: #152B50; /* Adjusted for a bluer tone */
     padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 10;
 }
 
-/* ✅ Pill-Shaped Buttons */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    padding: 0;
-    position: relative;
-}
-
-nav ul li {
-    position: relative;
-}
-
-nav a {
-    color: #EAEAEA;
-    text-decoration: none;
-    font-weight: 400;
-    background: #533483; /* Vibrant purple-blue */
-    padding: 10px 20px;
-    border-radius: 25px; /* Pill shape */
-    transition: background 0.3s ease;
-}
-
-nav a:hover {
-    background: #7A3E9D; /* Lighter purple */
-}
-
-/* ✅ Fixed Dropdown Menu */
+/* ✅ Shifted Dropdown Menu Down */
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 110%; /* Moved slightly down */
     left: 50%;
     transform: translateX(-50%);
-    background: #16213E; /* Same as header */
+    background: #152B50;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     padding: 10px;
     width: 200px;
@@ -65,23 +35,7 @@ nav a:hover {
     z-index: 10;
 }
 
-.dropdown-menu a {
-    color: #EAEAEA;
-    padding: 8px 10px;
-    display: block;
-    text-decoration: none;
-    border-radius: 10px;
-}
-
-.dropdown-menu a:hover {
-    background-color: #533483;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: flex;
-}
-
-/* ✅ Scrolling Image Gallery */
+/* ✅ Increased Carousel Speed */
 .scrolling-gallery {
     width: 100%;
     overflow: hidden;
@@ -92,47 +46,49 @@ nav a:hover {
 .image-track {
     display: flex;
     width: max-content;
-    animation: scrollLeft 65s linear infinite; /* Slowed down further */
+    animation: scrollLeft 59.36s linear infinite; /* 10% faster */
 }
 
-.image-container {
-    position: relative;
+/* ✅ About Me Section */
+.about-me {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0;
-    padding: 0;
+    margin: 50px auto;
+    max-width: 900px;
 }
 
-.image-container img {
-    height: 312.5px;
-    width: auto;
-    display: block;
-    transition: opacity 0.3s ease-in-out;
+.about-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 10px;
+    max-width: 300px;
 }
 
-/* ✅ Subtitles Only Appear on Hover */
-.subtitle {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 8px;
+.about-images img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.about-images .small-images {
+    display: flex;
+    gap: 10px;
+}
+
+.about-text {
+    flex: 1;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 24px;
     color: #EAEAEA;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s;
 }
 
-.image-container:hover .subtitle {
-    opacity: 1;
-}
-
-/* ✅ Continuous Scrolling */
-@keyframes scrollLeft {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
+.about-text p {
+    font-size: 16px;
+    color: #CFCFCF;
+    margin-top: 10px;
 }
