@@ -1,51 +1,47 @@
-let currentIndex = 0;
-const items = document.querySelectorAll(".carousel-item");
-const title = document.getElementById("carousel-title");
+document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".carousel-image");
+    const title = document.getElementById("project-title");
+    const prevButton = document.getElementById("prev");
+    const nextButton = document.getElementById("next");
 
-function updateCarousel() {
-    items.forEach((item, index) => {
-        item.classList.remove("center", "left", "right");
-        item.style.opacity = "0.5";
-        item.style.width = "200px";
-        item.style.display = "none";
-    });
-    
-    const prevIndex = (currentIndex - 1 + items.length) % items.length;
-    const nextIndex = (currentIndex + 1) % items.length;
+    const projectNames = [
+        "quip Ultra",
+        "quip Water Flosser",
+        "Shark EvoPower System",
+        "Artificial Stomach",
+        "iRhythm Zio"
+    ];
 
-    items[prevIndex].classList.add("left");
-    items[prevIndex].style.display = "block";
-    items[prevIndex].style.opacity = "0.5";
-    items[prevIndex].style.width = "200px";
+    let currentIndex = 2; // Start with the third image (Shark EvoPower System)
 
-    items[currentIndex].classList.add("center");
-    items[currentIndex].style.display = "block";
-    items[currentIndex].style.opacity = "1";
-    items[currentIndex].style.width = "300px";
+    function updateCarousel() {
+        images.forEach((img, index) => {
+            img.classList.remove("active");
+            img.style.opacity = "0.5";
+            img.style.width = "400px";
+            img.style.height = "300px";
+        });
 
-    items[nextIndex].classList.add("right");
-    items[nextIndex].style.display = "block";
-    items[nextIndex].style.opacity = "0.5";
-    items[nextIndex].style.width = "200px";
+        images[currentIndex].classList.add("active");
+        images[currentIndex].style.opacity = "1";
+        images[currentIndex].style.width = "500px";
+        images[currentIndex].style.height = "375px";
 
-    title.textContent = items[currentIndex].dataset.title;
-}
+        title.textContent = projectNames[currentIndex];
+    }
 
-document.getElementById("next").addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % items.length;
-    updateCarousel();
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel();
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateCarousel();
+    }
+
+    nextButton.addEventListener("click", nextImage);
+    prevButton.addEventListener("click", prevImage);
+
+    setInterval(nextImage, 3000); // Auto-cycle every 3 seconds
 });
-
-document.getElementById("prev").addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    updateCarousel();
-});
-
-setInterval(() => {
-    currentIndex = (currentIndex + 1) % items.length;
-    updateCarousel();
-}, 3000);
-
-window.onload = () => {
-    updateCarousel();
-};
