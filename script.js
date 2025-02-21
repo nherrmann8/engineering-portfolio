@@ -2,14 +2,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const track = document.querySelector(".image-track");
     const images = document.querySelectorAll(".image-container img");
 
-    // ✅ Restored Continuous Scrolling Functionality
+    // ✅ Restored Continuous Scrolling
     track.innerHTML += track.innerHTML;
 
     let isPaused = false;
 
     images.forEach(img => {
         img.addEventListener("mouseenter", () => {
-            track.style.animationPlayState = "paused";
+            track.style.animationPlayState = "paused"; 
             isPaused = true;
         });
 
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
             track.style.transition = "none";
             track.style.transform = "translateX(0)";
             setTimeout(() => {
-                track.style.transition = "transform 53.46s linear";
+                track.style.transition = "transform 50s linear";
                 track.style.transform = "translateX(-50%)";
             }, 50);
         }
