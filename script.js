@@ -5,13 +5,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = document.getElementById("nextBtn");
     const caption = document.getElementById("imageCaption");
 
-    let currentIndex = 3; // Start at the center image
+    let currentIndex = 1; // Start with "quip Ultra" as the centerpiece
     const captions = [
+        "Zio iRhythm",
         "quip Ultra",
         "quip Water Flosser",
         "Shark EvoPower",
         "Artificial Stomach",
-        "Zio iRhythm"
+        "Zio iRhythm",
+        "quip Ultra",
+        "quip Water Flosser"
     ];
 
     function updateCarousel() {
@@ -23,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             img.classList.toggle("active", index === currentIndex);
         });
 
-        caption.textContent = captions[(currentIndex - 1) % captions.length];
+        caption.textContent = captions[currentIndex];
     }
 
     function moveToNext() {
