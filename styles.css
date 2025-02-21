@@ -45,11 +45,11 @@ nav a {
     padding: 10px;
     width: 150px;
     flex-direction: column;
+    z-index: 10;
 }
 
 .dropdown:hover .dropdown-menu {
     display: flex;
-    flex-direction: column;
 }
 
 /* ✅ Scrolling Image Gallery */
@@ -63,7 +63,7 @@ nav a {
 .image-track {
     display: flex;
     width: max-content;
-    animation: scrollLeft 31.25s linear infinite; /* Slowed by another 25% */
+    animation: scrollLeft 39.06s linear infinite; /* Slowed down by another 25% */
 }
 
 .image-container {
@@ -80,21 +80,23 @@ nav a {
     height: 312.5px; /* Increased size by 25% */
     width: auto;
     display: block;
-    transition: transform 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
-/* ✅ Hover Effect - Increase Size by 10% */
-.image-container:hover img {
-    transform: scale(1.1); /* Image expands by 10%, pushing others aside */
-}
-
-/* ✅ Subtitles are now BELOW images */
+/* ✅ Removed Zoom Effect */
+/* ✅ Subtitles Only Appear on Hover */
 .subtitle {
     font-size: 16px;
     font-weight: bold;
     margin-top: 5px;
     color: #333;
     text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image-container:hover .subtitle {
+    opacity: 1;
 }
 
 /* ✅ Continuous Scrolling */
