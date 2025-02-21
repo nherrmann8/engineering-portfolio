@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = document.getElementById("nextBtn");
     const caption = document.getElementById("imageCaption");
 
-    let currentIndex = 1; 
+    let currentIndex = 1;
     const captions = [
         "Zio iRhythm",
         "quip Ultra",
@@ -20,9 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         caption.textContent = captions[currentIndex];
 
-        // Adjust position to keep the active image centered
-        const offset = images[currentIndex].offsetLeft - (track.offsetWidth / 2) + (images[currentIndex].offsetWidth / 2);
-        track.style.transform = `translateX(-${offset}px)`;
+        // ✅ Fix center image positioning
+        track.style.transform = `translateX(calc(50% - ${images[currentIndex].offsetLeft}px))`;
     }
 
     function moveToNext() {
