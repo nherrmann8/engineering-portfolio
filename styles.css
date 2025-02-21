@@ -43,9 +43,20 @@ nav a {
     background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    width: 150px;
+    width: 180px;
     flex-direction: column;
     z-index: 10;
+}
+
+.dropdown-menu a {
+    color: black;
+    padding: 5px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -63,7 +74,7 @@ nav a {
 .image-track {
     display: flex;
     width: max-content;
-    animation: scrollLeft 39.06s linear infinite; /* Slowed down by another 25% */
+    animation: scrollLeft 48.83s linear infinite; /* Slowed down by another 25% */
 }
 
 .image-container {
@@ -83,7 +94,6 @@ nav a {
     transition: opacity 0.3s ease-in-out;
 }
 
-/* ✅ Removed Zoom Effect */
 /* ✅ Subtitles Only Appear on Hover */
 .subtitle {
     font-size: 16px;
