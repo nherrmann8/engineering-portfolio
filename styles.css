@@ -87,18 +87,23 @@ nav ul li:hover .dropdown-menu {
 }
 
 .carousel-image {
-    width: 400px;
-    height: 300px;
     object-fit: cover;
-    opacity: 0.5;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
+/* Centerpiece Image */
 .carousel-image.active {
     width: 500px;
     height: 375px;
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1);
+}
+
+/* Side Images */
+.carousel-image.side-image {
+    width: 375px;
+    height: 281px;
+    opacity: 0.5;
 }
 
 /* Carousel Controls */
