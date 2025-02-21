@@ -50,16 +50,17 @@ header {
     color: #FFD700;
 }
 
-/* ✅ Fixed Dropdown Menu (Now Above Carousel) */
+/* ✅ Fixed Dropdown Menu */
 .dropdown {
     position: relative;
     z-index: 20; /* Ensures it stays on top */
 }
 
+/* ✅ Adjusted Dropdown Menu Position */
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 50px;
+    top: 100%; /* Ensures it aligns directly below the button */
     left: 50%;
     transform: translateX(-50%);
     background: #262626;
@@ -68,6 +69,12 @@ header {
     padding: 12px;
     text-align: center;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Added slight padding to prevent flickering */
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
 }
 
 .dropdown-menu li {
@@ -87,10 +94,6 @@ header {
     background: #FFD700;
     color: #121212;
     border-radius: 5px;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
 }
 
 /* ✅ Carousel Fixes */
