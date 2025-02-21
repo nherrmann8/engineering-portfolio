@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = document.getElementById("nextBtn");
     const caption = document.getElementById("imageCaption");
 
-    let currentIndex = 2;
+    let currentIndex = 0;
     const order = [
         "images/ultra1.jpg",
         "images/flosser1.jpg",
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         caption.textContent = captions[currentIndex];
 
-        // Make the carousel wrap around (continuous looping)
+        // Ensure continuous wrap-around behavior
         setTimeout(() => {
             if (currentIndex === images.length - 1) {
                 currentIndex = 0;
