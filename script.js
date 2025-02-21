@@ -24,13 +24,25 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateCarousel() {
         track.style.transform = `translateX(-${currentIndex * 50}%)`;
         images.forEach((img, index) => {
+            img.classList.remove("active");
             if (index === currentIndex) {
                 img.classList.add("active");
-            } else {
-                img.classList.remove("active");
             }
         });
         caption.textContent = captions[currentIndex];
+
+        // Make the carousel wrap around (continuous looping)
+        setTimeout(() => {
+            if (currentIndex === images.length - 1) {
+                currentIndex = 0;
+                track.style.transition = "none";
+                track.style.transform = `translateX(0)`;
+            } else if (currentIndex === 0) {
+                currentIndex = images.length - 1;
+                track.style.transition = "none";
+                track.style.transform = `translateX(-${(images.length - 1) * 50}%)`;
+            }
+        }, 500);
     }
 
     prevButton.addEventListener("click", function () {
