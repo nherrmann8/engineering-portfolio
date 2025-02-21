@@ -7,28 +7,29 @@ body {
     padding: 0;
     background-color: #1A1A2E;
     color: #EAEAEA;
-    text-align: center;
 }
 
-/* ✅ Header Improvements */
+/* ✅ Header Fixes */
 header {
     background: #16213E;
     padding: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav-left {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 15px;
-    margin: 0;
+.nav-title {
+    margin-left: 20px;
 }
 
-.nav-left a {
+.nav-right {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin-right: 20px;
+}
+
+.nav-right a {
     color: #EAEAEA;
     text-decoration: none;
     background: #533483;
@@ -37,38 +38,8 @@ header {
     transition: background 0.3s ease;
 }
 
-.nav-left a:hover {
+.nav-right a:hover {
     background: #7A3E9D;
-}
-
-.nav-title {
-    margin-left: auto;
-    margin-right: 20px;
-}
-
-/* ✅ Dropdown Menu */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    left: 0;
-    background: #16213E;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-    width: 200px;
-    padding: 10px;
-}
-
-.dropdown-menu a {
-    display: block;
-    padding: 8px;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
 }
 
 /* ✅ Continuous Carousel */
@@ -80,17 +51,15 @@ header {
 
 .carousel-track {
     display: flex;
+    animation: scrollLeft 25s linear infinite;
     width: max-content;
-    animation: scrollLeft 15s linear infinite;
 }
 
 .carousel-item img {
     height: 300px;
     width: auto;
-    display: block;
 }
 
-/* ✅ Looping Animation */
 @keyframes scrollLeft {
     from {
         transform: translateX(0);
@@ -112,19 +81,22 @@ header {
 .about-container {
     display: flex;
     align-items: center;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: space-between;
 }
 
 .about-images {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .about-images img {
-    width: 100%;
-    max-width: 250px;
+    width: 300px;
+    height: auto;
     object-fit: cover;
-    border-radius: 10px;
+}
+
+.about-text {
+    flex: 1;
+    text-align: right;
 }
