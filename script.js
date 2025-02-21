@@ -11,16 +11,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("✅ Carousel Initialized");
 
-    function loopCarousel() {
-        track.appendChild(track.firstElementChild.cloneNode(true)); // Duplicate first image at the end
-        track.removeChild(track.firstElementChild); // Remove original first image
-        track.style.transition = "none";
-        track.style.transform = "translateX(0)";
-        setTimeout(() => {
-            track.style.transition = "transform 15s linear";
-            track.style.transform = "translateX(-100%)";
-        }, 50);
-    }
+    // Duplicate first images to create an infinite loop effect
+    items.forEach(item => {
+        track.appendChild(item.cloneNode(true));
+    });
 
-    track.addEventListener("transitionend", loopCarousel);
+    // Hover effect: Stop scrolling and show subtitle
+    const images = document.querySelectorAll(".carousel-item img");
+
+    images.forEach(img => {
+        img.addEventListener("mouseenter", () => {
+            track.style.animationPlayState = "paused";
+            img.nextElementSibling.style.opacity = "1"; // Show subtitle
+        });
+
+        img.addEventListener("mouseleave", () => {
+            track.style.animationPlayState = "running";
+            img.nextElementSibling.style.opacity = "0"; // Hide subtitle
+        });
+    });
 });
