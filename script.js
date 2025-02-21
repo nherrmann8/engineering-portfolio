@@ -1,40 +1,31 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const track = document.querySelector(".carousel-track");
-    const items = document.querySelectorAll(".carousel-item");
-    const prevButton = document.getElementById("prevBtn");
-    const nextButton = document.getElementById("nextBtn");
-    const caption = document.getElementById("imageCaption");
+let currentIndex = 2;
+const items = document.querySelectorAll(".carousel-item");
+const title = document.getElementById("carousel-title");
 
-    let currentIndex = 0;
-    const captions = [
-        "quip Ultra",
-        "quip Water Flosser",
-        "Shark EvoPower",
-        "Artificial Stomach",
-        "Zio iRhythm"
-    ];
-
-    function updateCarousel() {
-        items.forEach((item, index) => {
-            item.classList.remove("active");
-            if (index === currentIndex) {
-                item.classList.add("active");
-            }
-        });
-
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        caption.textContent = captions[currentIndex];
-    }
-
-    prevButton.addEventListener("click", function () {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        updateCarousel();
+function updateCarousel() {
+    items.forEach((item, index) => {
+        item.classList.remove("active");
+        item.style.opacity = "0.5";
+        item.style.width = "200px";
     });
+    
+    items[currentIndex].classList.add("active");
+    items[currentIndex].style.opacity = "1";
+    items[currentIndex].style.width = "300px";
+    title.textContent = items[currentIndex].dataset.title;
+}
 
-    nextButton.addEventListener("click", function () {
-        currentIndex = (currentIndex + 1) % items.length;
-        updateCarousel();
-    });
-
+document.getElementById("next").addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % items.length;
     updateCarousel();
 });
+
+document.getElementById("prev").addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateCarousel();
+});
+
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateCarousel();
+}, 3000);
