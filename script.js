@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = document.getElementById("nextBtn");
     const caption = document.getElementById("imageCaption");
 
-    let currentIndex = 1; // Ensuring "quip Ultra" is the default
+    let currentIndex = 1; // "quip Ultra" is the first centered image
     const captions = [
         "Zio iRhythm",
         "quip Ultra",
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     function updateCarousel() {
-        const imageWidth = images[0].offsetWidth * 1.2; 
+        const imageWidth = images[0].offsetWidth + 20; 
         track.style.transition = "transform 0.5s ease-in-out";
         track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
 
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentIndex >= images.length - 2) {
             track.style.transition = "none";
             currentIndex = 1;
-            track.style.transform = `translateX(-${currentIndex * (images[0].offsetWidth * 1.2)}px)`;
+            track.style.transform = `translateX(-${currentIndex * (images[0].offsetWidth + 20)}px)`;
         } else {
             currentIndex++;
         }
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentIndex <= 0) {
             track.style.transition = "none";
             currentIndex = images.length - 3;
-            track.style.transform = `translateX(-${currentIndex * (images[0].offsetWidth * 1.2)}px)`;
+            track.style.transform = `translateX(-${currentIndex * (images[0].offsetWidth + 20)}px)`;
         } else {
             currentIndex--;
         }
