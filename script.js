@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = document.getElementById("nextBtn");
     const caption = document.getElementById("imageCaption");
 
-    let currentIndex = 3; // Start in the middle
+    let currentIndex = 3; // Start at the center image
     const captions = [
         "quip Ultra",
         "quip Water Flosser",
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     function updateCarousel() {
-        const imageWidth = images[0].offsetWidth + 20; // Include spacing
+        const imageWidth = images[0].offsetWidth * 1.2; // Consider scaling effect
         track.style.transition = "transform 0.5s ease-in-out";
         track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
 
@@ -28,28 +28,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function moveToNext() {
         if (currentIndex >= images.length - 2) {
-            track.style.transition = "none"; // Disable transition for smooth looping
+            track.style.transition = "none"; // Remove transition for smooth looping
             currentIndex = 1;
-            track.style.transform = `translateX(-${currentIndex * (images[0].offsetWidth + 20)}px)`;
+            track.style.transform = `translateX(-${currentIndex * (images[0].offsetWidth * 1.2)}px)`;
         } else {
             currentIndex++;
         }
-        setTimeout(() => {
-            updateCarousel();
-        }, 50);
+        setTimeout(updateCarousel, 50);
     }
 
     function moveToPrev() {
         if (currentIndex <= 0) {
-            track.style.transition = "none"; // Disable transition for smooth looping
+            track.style.transition = "none"; // Remove transition for smooth looping
             currentIndex = images.length - 3;
-            track.style.transform = `translateX(-${currentIndex * (images[0].offsetWidth + 20)}px)`;
+            track.style.transform = `translateX(-${currentIndex * (images[0].offsetWidth * 1.2)}px)`;
         } else {
             currentIndex--;
         }
-        setTimeout(() => {
-            updateCarousel();
-        }, 50);
+        setTimeout(updateCarousel, 50);
     }
 
     prevButton.addEventListener("click", moveToPrev);
