@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const track = document.querySelector(".image-track");
     const images = document.querySelectorAll(".image-container img");
 
-    let animationPaused = false;
+    // ✅ Duplicate images to ensure smooth infinite scrolling
+    track.innerHTML += track.innerHTML;
 
     images.forEach(img => {
         img.addEventListener("mouseenter", () => {
