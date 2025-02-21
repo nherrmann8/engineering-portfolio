@@ -47,4 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
             track.style.animationPlayState = "running";
         });
     });
+
+    // ✅ Subtitles appear on hover
+    document.querySelectorAll(".carousel-item").forEach(item => {
+        item.addEventListener("mouseenter", () => {
+            item.querySelector(".subtitle").style.opacity = "1";
+        });
+        item.addEventListener("mouseleave", () => {
+            item.querySelector(".subtitle").style.opacity = "0";
+        });
+    });
 });
