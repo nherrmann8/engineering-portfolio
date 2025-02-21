@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nathan Herrmann Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
 </head>
 <body>
@@ -14,13 +14,13 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li class="dropdown">
-                    <a href="#">Projects &#9662;</a>
+                    <a href="#">Projects</a>
                     <ul class="dropdown-menu">
                         <li><a href="#">quip Ultra</a></li>
                         <li><a href="#">quip Water Flosser</a></li>
-                        <li><a href="#">Shark EvoPower System</a></li>
+                        <li><a href="#">Shark EvoPower</a></li>
                         <li><a href="#">Artificial Stomach</a></li>
-                        <li><a href="#">iRhythm Zio</a></li>
+                        <li><a href="#">Zio iRhythm</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Resume</a></li>
@@ -28,19 +28,22 @@
         </nav>
     </header>
 
-    <main>
+    <section class="carousel-container">
         <div class="carousel">
-            <div class="carousel-container">
-                <img src="images/zio1.jpg" alt="iRhythm Zio" class="carousel-image side-image">
-                <img src="images/ultra1.jpg" alt="quip Ultra" class="carousel-image active">
-                <img src="images/flosser1.jpg" alt="quip Water Flosser" class="carousel-image side-image">
-            </div>
-            <div class="carousel-controls">
-                <button id="prev">&#10094;</button>
-                <h2 id="project-title">quip Ultra</h2>
-                <button id="next">&#10095;</button>
+            <div class="carousel-track">
+                <img src="images/ultra1.jpg" class="carousel-image" alt="quip Ultra">
+                <img src="images/flosser1.jpg" class="carousel-image" alt="quip Water Flosser">
+                <img src="images/shark1.jpg" class="carousel-image active" alt="Shark EvoPower">
+                <img src="images/stomach1.jpg" class="carousel-image" alt="Artificial Stomach">
+                <img src="images/zio1.jpg" class="carousel-image" alt="Zio iRhythm">
             </div>
         </div>
-    </main>
+        <div class="carousel-controls">
+            <button id="prevBtn">←</button>
+            <p id="imageCaption">Shark EvoPower</p>
+            <button id="nextBtn">→</button>
+        </div>
+    </section>
+
 </body>
 </html>
