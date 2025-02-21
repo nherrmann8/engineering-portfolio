@@ -1,61 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nathan Herrmann Portfolio</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathan Herrmann Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
+    <header>
+        <h1>Nathan Herrmann Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Projects</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">quip Ultra</a></li>
+                        <li><a href="#">quip Water Flosser</a></li>
+                        <li><a href="#">Shark EvoPower</a></li>
+                        <li><a href="#">Artificial Stomach</a></li>
+                        <li><a href="#">Zio iRhythm</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Header -->
-  <header>
-    <h1 class="site-title">Nathan Herrmann Portfolio</h1>
-    <nav class="nav-links">
-      <a href="#">Home</a>
-      <div class="dropdown">
-        <button class="dropbtn">Projects</button>
-        <div class="dropdown-content">
-          <a href="#">quip Ultra</a>
-          <a href="#">quip Water Flosser</a>
-          <a href="#">Shark EvoPower System</a>
-          <a href="#">Artificial Stomach</a>
-          <a href="#">Zio iRhythm</a>
+    <section class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="images/ultra1.jpg" class="carousel-image" alt="quip Ultra">
+                <img src="images/flosser1.jpg" class="carousel-image" alt="quip Water Flosser">
+                <img src="images/shark1.jpg" class="carousel-image active" alt="Shark EvoPower">
+                <img src="images/stomach1.jpg" class="carousel-image" alt="Artificial Stomach">
+                <img src="images/zio1.jpg" class="carousel-image" alt="Zio iRhythm">
+            </div>
         </div>
-      </div>
-      <a href="#">Resume</a>
-    </nav>
-  </header>
-
-  <!-- Carousel -->
-  <section class="carousel-section">
-    <div class="carousel-viewport">
-      <div id="carousel-track" class="carousel-track">
-        <!-- We'll generate the 5 items in script.js so we can control the order & scaling -->
-      </div>
-    </div>
-    <div class="carousel-controls">
-      <button class="arrow-btn arrow-left">&#8592;</button>
-      <span id="subtitle" class="subtitle"></span>
-      <button class="arrow-btn arrow-right">&#8594;</button>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      This carousel shows three images at once—center plus two side previews—using a
-      smooth sliding track. The order is: quip Ultra, quip Water Flosser, Shark,
-      Artificial Stomach, Zio iRhythm. Each image is 4:3. Arrows and subtitle are below 
-      the carousel.
-    </p>
-  </section>
+        <div class="carousel-controls">
+            <button id="prevBtn">←</button>
+            <p id="imageCaption">Shark EvoPower</p>
+            <button id="nextBtn">→</button>
+        </div>
+    </section>
 
 </body>
 </html>
