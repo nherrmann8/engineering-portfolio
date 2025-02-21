@@ -1,0 +1,190 @@
+/* ✅ Import Modern Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark Theme */
+    color: #EAEAEA; /* Light Text */
+}
+
+/* ✅ Header (Slightly Lighter Grey) */
+header {
+    background: #1E1E1E; /* Adjusted to a lighter grey */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-title {
+    color: #FFFFFF;
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ✅ Navbar Fixes */
+.nav-right {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-right: 20px;
+}
+
+.nav-right a {
+    color: #FFFFFF;
+    text-decoration: none;
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+}
+
+.nav-right a:hover {
+    background: #333333;
+    color: #FFD700;
+}
+
+/* ✅ Fixed Dropdown Menu (Now Above Carousel) */
+.dropdown {
+    position: relative;
+    z-index: 20; /* Ensures it stays on top */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #262626;
+    border-radius: 8px;
+    width: 220px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu li {
+    list-style: none;
+    padding: 8px;
+}
+
+.dropdown-menu li a {
+    color: #FFFFFF;
+    display: block;
+    text-decoration: none;
+    padding: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.dropdown-menu li a:hover {
+    background: #FFD700;
+    color: #121212;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* ✅ Carousel Fixes */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    animation: scrollLeft 55s linear infinite;
+    width: max-content;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item img {
+    height: 320px;
+    width: auto;
+    transition: none; /* ✅ Removed zoom effect */
+}
+
+/* ✅ Subtitles on Hover */
+.subtitle {
+    opacity: 0;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.carousel-item:hover .subtitle {
+    opacity: 1;
+}
+
+/* ✅ About Me Section (Final Adjustments) */
+.about-me {
+    width: 85%;
+    margin: 100px auto;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #252525; /* ✅ Adjusted to a lighter grey */
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Shifted Images Further Left */
+.about-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: -30px; /* ✅ Universal shift left */
+}
+
+.about-images {
+    display: flex;
+    gap: 20px;
+}
+
+.about-left img,
+.about-center img,
+.about-right img {
+    width: 280px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ✅ More Buffer Space for Text */
+.about-text {
+    flex: 1;
+    text-align: left;
+    max-width: 50%;
+    color: #EAEAEA;
+    margin-left: 30px; /* ✅ Extra buffer space */
+}
+
+/* ✅ Bullet Points Instead of Paragraph */
+.about-text ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.about-text ul li {
+    margin-bottom: 10px;
+}
