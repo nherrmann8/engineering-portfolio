@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const track = document.querySelector(".image-track");
     const images = document.querySelectorAll(".image-container img");
 
-    // ✅ Duplicate images to ensure seamless infinite scrolling
+    // ✅ Duplicate images to create an infinite loop
     track.innerHTML += track.innerHTML;
-    
+
     let isPaused = false;
 
     images.forEach(img => {
@@ -19,13 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ✅ Ensure Smooth Continuous Loop
+    // ✅ Continuous Scrolling Fix
     function resetScroll() {
         if (!isPaused) {
             track.style.transition = "none";
             track.style.transform = "translateX(0)";
             setTimeout(() => {
-                track.style.transition = "transform 18.75s linear";
+                track.style.transition = "transform 25s linear";
                 track.style.transform = "translateX(-50%)";
             }, 50);
         }
