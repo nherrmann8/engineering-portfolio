@@ -53,14 +53,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ Subtitles appear on hover
     document.querySelectorAll(".carousel-item").forEach(item => {
-        item.addEventListener("mouseenter", () => {
-            let subtitle = item.querySelector(".subtitle");
+        item.addEventListener("mouseenter", function () {
+            let subtitle = this.querySelector(".subtitle");
             if (subtitle) {
                 subtitle.style.opacity = "1";
             }
         });
-        item.addEventListener("mouseleave", () => {
-            let subtitle = item.querySelector(".subtitle");
+
+        item.addEventListener("mouseleave", function () {
+            let subtitle = this.querySelector(".subtitle");
             if (subtitle) {
                 subtitle.style.opacity = "0";
             }
