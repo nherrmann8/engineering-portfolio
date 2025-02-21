@@ -1,4 +1,4 @@
-/* General Styling */
+/* ✅ Fixed Layout Issues */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -8,6 +8,7 @@ body {
     text-align: center;
 }
 
+/* ✅ Fixed Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -19,11 +20,37 @@ header {
     z-index: 10;
 }
 
-/* ✅ Shifted Dropdown Menu Down */
+/* ✅ Fixed Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    position: relative;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: #2A4D85; /* Bluer tone */
+    transition: background 0.3s ease;
+}
+
+nav a:hover {
+    background: #3A5DAF;
+}
+
+/* ✅ Fixed Dropdown Menu Placement */
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 110%; /* Moved slightly down */
+    top: 120%; /* Shifted further down */
     left: 50%;
     transform: translateX(-50%);
     background: #152B50;
@@ -35,7 +62,23 @@ header {
     z-index: 10;
 }
 
-/* ✅ Increased Carousel Speed */
+.dropdown-menu a {
+    color: #EAEAEA;
+    padding: 8px 10px;
+    display: block;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #3A5DAF;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+/* ✅ Fixed Scrolling Gallery */
 .scrolling-gallery {
     width: 100%;
     overflow: hidden;
@@ -46,10 +89,10 @@ header {
 .image-track {
     display: flex;
     width: max-content;
-    animation: scrollLeft 59.36s linear infinite; /* 10% faster */
+    animation: scrollLeft 53.46s linear infinite; /* Adjusted speed */
 }
 
-/* ✅ About Me Section */
+/* ✅ About Me Section Fix */
 .about-me {
     display: flex;
     align-items: center;
