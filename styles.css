@@ -1,4 +1,4 @@
-=/* ✅ General Styles */
+/* ✅ Restored Correct Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 body {
@@ -9,7 +9,7 @@ body {
     color: #EAEAEA;
 }
 
-/* ✅ Header */
+/* ✅ Header Fixes */
 header {
     background: #16213E;
     padding: 20px;
@@ -37,7 +37,7 @@ header {
     border-radius: 25px;
 }
 
-/* ✅ Dropdown Menu */
+/* ✅ Fixed Dropdown Menu */
 .dropdown {
     position: relative;
 }
@@ -56,7 +56,7 @@ header {
     display: block;
 }
 
-/* ✅ Carousel */
+/* ✅ Carousel Fixed */
 .carousel {
     width: 100%;
     overflow: hidden;
@@ -74,17 +74,7 @@ header {
     width: auto;
 }
 
-/* ✅ Subtitles */
-.subtitle {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.carousel-item:hover .subtitle {
-    opacity: 1;
-}
-
-/* ✅ About Me */
+/* ✅ About Me Section */
 .about-me {
     width: 80%;
     margin: 60px auto;
