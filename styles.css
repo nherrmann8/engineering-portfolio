@@ -20,6 +20,30 @@ header {
     z-index: 10;
 }
 
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: #2A4D85;
+    transition: background 0.3s ease;
+}
+
+nav a:hover {
+    background: #3A5DAF;
+}
+
 /* ✅ Fixed Scrolling Gallery */
 .scrolling-gallery {
     width: 100%;
@@ -34,41 +58,32 @@ header {
     animation: scrollLeft 50s linear infinite; /* Adjusted speed */
 }
 
-/* ✅ NEW: About Me Section */
-.about-me {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
+.image-container {
+    position: relative;
+    display: inline-block;
+    margin: 0;
 }
 
-.about-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    max-width: 900px;
+.image-container img {
+    width: 250px;
+    transition: transform 0.3s ease;
 }
 
-.about-images {
-    display: grid;
-    grid-template-rows: 2fr 1fr;
-    gap: 10px;
+/* ✅ Subtitles Appear Only on Hover */
+.subtitle {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.large {
-    width: 100%;
-    border-radius: 10px;
+.image-container:hover .subtitle {
+    opacity: 1;
 }
 
-.small-images {
-    display: flex;
-    gap: 10px;
-}
-
-.small-images img {
-    width: 50%;
-    border-radius: 10px;
-}
-
-.about-text {
-    text-align: left;
+/* ✅ Hover Effect */
+.image-container:hover img {
+    transform: scale(1.1);
 }
