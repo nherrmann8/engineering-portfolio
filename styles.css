@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: 'Helvetica Neue', sans-serif;
     margin: 0;
@@ -6,6 +7,7 @@ body {
     text-align: center;
 }
 
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -31,6 +33,7 @@ nav a {
     text-decoration: none;
 }
 
+/* Dropdown */
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -46,9 +49,11 @@ nav a {
     display: block;
 }
 
+/* Carousel */
 .carousel-container {
     position: relative;
     width: 90%;
+    max-width: 1000px;
     margin: 50px auto;
     overflow: hidden;
 }
@@ -61,26 +66,32 @@ nav a {
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
     justify-content: center;
     align-items: center;
+    transition: transform 0.5s ease-in-out;
 }
 
-.carousel-image {
+.carousel-item {
     width: 50%;
     max-width: 550px;
-    height: auto;
     aspect-ratio: 4 / 3;
-    transition: opacity 0.5s, transform 0.5s;
+    opacity: 0.5;
+    transform: scale(0.8);
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
-.carousel-image:not(.active) {
-    width: 40%;
-    opacity: 0.5;
-    transform: scale(0.8);
-}
-
+/* Controls */
 .carousel-controls {
     display: flex;
     justify-content: center;
@@ -91,14 +102,13 @@ nav a {
 button {
     background: none;
     border: none;
-    padding: 10px;
     cursor: pointer;
 }
 
 button img {
     width: 20px;
     height: auto;
-    filter: brightness(0.2); /* Adjusted contrast */
+    filter: brightness(0.2);
 }
 
 button img:hover {
