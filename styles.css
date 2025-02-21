@@ -1,122 +1,78 @@
-/* General Styles */
 body {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     text-align: center;
 }
 
-/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #222;
     padding: 20px;
+    background: #222;
     color: white;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    padding: 0;
+    gap: 20px;
 }
 
 nav ul li {
-    margin-left: 20px;
     position: relative;
 }
 
-nav a {
-    color: white;
+nav ul li a {
     text-decoration: none;
+    color: white;
 }
 
-/* Dropdown */
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #444;
     padding: 10px;
-    width: 150px;
+    list-style: none;
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 
-/* Carousel */
-.carousel-container {
-    position: relative;
-    width: 90%;
-    max-width: 1000px;
-    margin: 50px auto;
-    overflow: hidden;
-}
-
 .carousel {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 800px;
 }
 
-.carousel-track {
+.carousel-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    transition: transform 0.5s ease-in-out;
+    gap: 20px;
 }
 
 .carousel-item {
-    width: 50%;
-    max-width: 550px;
-    aspect-ratio: 4 / 3;
+    width: 200px;
     opacity: 0.5;
-    transform: scale(0.8);
-    transition: transform 0.5s, opacity 0.5s;
-}
-
-.carousel-item.active {
-    opacity: 1;
-    transform: scale(1);
+    transition: all 0.5s;
 }
 
 .carousel-item img {
     width: 100%;
     height: auto;
-    object-fit: cover;
 }
 
-/* Controls */
-.carousel-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
+.carousel-item.active {
+    width: 300px;
+    opacity: 1;
 }
 
-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-button img {
-    width: 20px;
-    height: auto;
-    filter: brightness(0.2);
-}
-
-button img:hover {
-    filter: brightness(0.5);
-}
-
-#imageCaption {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0 20px;
+.subtitle {
+    margin-top: 20px;
+    font-size: 20px;
 }
