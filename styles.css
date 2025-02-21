@@ -16,11 +16,13 @@ header {
     color: white;
 }
 
+/* ✅ Fix Dropdown Menu */
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
     padding: 0;
+    position: relative;
 }
 
 nav ul li {
@@ -30,6 +32,24 @@ nav ul li {
 nav a {
     color: white;
     text-decoration: none;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 150px;
+    flex-direction: column;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
 }
 
 /* ✅ Scrolling Image Gallery */
@@ -43,12 +63,13 @@ nav a {
 .image-track {
     display: flex;
     width: max-content;
-    animation: scrollLeft 25s linear infinite; /* Slowed by 25% */
+    animation: scrollLeft 31.25s linear infinite; /* Slowed by another 25% */
 }
 
 .image-container {
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0;
@@ -67,22 +88,13 @@ nav a {
     transform: scale(1.1); /* Image expands by 10%, pushing others aside */
 }
 
-/* ✅ Subtitle Appears on Hover */
+/* ✅ Subtitles are now BELOW images */
 .subtitle {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
     font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #333;
     text-align: center;
-    padding: 5px 0;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.image-container:hover .subtitle {
-    opacity: 1;
 }
 
 /* ✅ Continuous Scrolling */
