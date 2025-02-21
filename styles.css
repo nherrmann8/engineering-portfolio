@@ -1,21 +1,19 @@
-/* ✅ About Me Section */
+/* ✅ Fixed About Me Section */
 .about-me {
     width: 80%;
     margin: 50px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: #16213E;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.about-content {
+.about-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     align-items: center;
-    width: 100%;
+    justify-content: center;
 }
 
 .about-images {
@@ -24,15 +22,16 @@
 }
 
 .about-images img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .about-text {
     flex: 1;
-    text-align: left;
+    max-width: 500px;
+    text-align: center;
 }
 
 .about-text h2 {
