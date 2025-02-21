@@ -23,12 +23,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateCarousel() {
         track.style.transform = `translateX(-${currentIndex * 50}%)`;
+
         images.forEach((img, index) => {
             img.classList.remove("active");
             if (index === currentIndex) {
                 img.classList.add("active");
             }
         });
+
         caption.textContent = captions[currentIndex];
 
         // Ensure continuous wrap-around behavior
