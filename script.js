@@ -1,127 +1,108 @@
-/* Five images (all 4:3 ratio). 
-   We'll create 5 items in .carousel-track 
-   but only show 3 at once (prev, center, next). 
-   We'll do a sliding transform to center the correct group. 
-*/
-const images = [
-  { src: "images/zio1.jpg",     caption: "Zio iRhythm" },
-  { src: "images/ultra1.jpg",   caption: "quip Ultra" },
-  { src: "images/flosser1.jpg", caption: "quip Water Flosser" },
-  { src: "images/shark1.jpg",   caption: "Shark EvoPower System" },
-  { src: "images/stomach1.jpg", caption: "Artificial Stomach" }
+/* The fixed order: quip Ultra, Water Flosser, Shark, Stomach, Zio */
+const imagesData = [
+  { src: "images/ultra1.jpg",    caption: "quip Ultra" },
+  { src: "images/flosser1.jpg",  caption: "quip Water Flosser" },
+  { src: "images/shark1.jpg",    caption: "Shark EvoPower System" },
+  { src: "images/stomach1.jpg",  caption: "Artificial Stomach" },
+  { src: "images/zio1.jpg",      caption: "Zio iRhythm" }
 ];
 
-let currentIndex = 0; // which image is center
-const track = document.getElementById("carouselTrack");
-const subtitle = document.getElementById("subtitle");
+const track = document.getElementById("carousel-track");
+const subtitleEl = document.getElementById("subtitle");
 const arrowLeft = document.querySelector(".arrow-left");
 const arrowRight = document.querySelector(".arrow-right");
 
-/* 1) Dynamically create each item in the track */
-images.forEach((imgObj, i) => {
-  const div = document.createElement("div");
-  div.classList.add("carousel-item");
+/* We'll create 5 .carousel-item elements in the track, each flex:0 0 33.33% 
+   so we see 3 items at a time in the viewport. 
+*/
+imagesData.forEach(data => {
+  const itemDiv = document.createElement("div");
+  itemDiv.classList.add("carousel-item");
   const img = document.createElement("img");
-  img.src = imgObj.src;
-  div.appendChild(img);
-  track.appendChild(div);
+  img.src = data.src;
+  itemDiv.appendChild(img);
+  track.appendChild(itemDiv);
 });
 
-/* Now we have 5 .carousel-item elements in a row. 
-   We'll show images[i-1], images[i], images[i+1] as side/center. 
-   For a real "sliding" effect, we'll transform the track so that 
-   the center image is in the middle. 
+/* We have 5 items in total. 
+   We'll shift the track left/right so that the center item is in the middle slot. 
+   We'll also add .side-img to items that are not center. 
+   Let's define currentIndex = 0 => the center item in slot #0 => 
+   but we have 3 slots in the viewport => 
+   We'll do a simpler approach: the center item will appear in the middle slot => 
+   that means track translateX(...) to shift items so the currentIndex is in that middle slot. 
 */
+let currentIndex = 0; // which item is "center" in the middle slot
+const totalItems = imagesData.length;
 
-/* 2) Update classes + track transform */
 function updateCarousel() {
-  /* We show 3 images at once: 
-     - item at (currentIndex-1) => side
-     - item at currentIndex => center
-     - item at (currentIndex+1) => side
+  /* 
+     We'll show the item at currentIndex in the middle slot, 
+     item at currentIndex-1 in left slot, item at currentIndex+1 in right slot, etc. 
+     For a simple approach:
+       translateX( - (currentIndex * (100% / 3) ) ) 
+     But we have 5 items, each 33.33% wide, so the total track is 5*33.33% = 166.65% wide.
+     If the center is currentIndex, we want that item to appear in the middle. 
+     The middle slot is effectively 1 slot from the left => we want to shift left by (currentIndex - 1) * 33.33%. 
   */
-  const items = document.querySelectorAll(".carousel-item");
-  const total = items.length;
+  const offsetPercent = (currentIndex - 1) * 33.33;
+  track.style.transform = `translateX(-${offsetPercent}%)`;
 
-  // For cyclical indexing:
-  function wrap(idx) { 
-    return (idx + total) % total; 
-  }
-
-  // For each item, decide if it's prev, center, or next, or hidden
+  // Identify which items are side vs. center
+  const items = track.querySelectorAll(".carousel-item");
   items.forEach((item, i) => {
     const img = item.querySelector("img");
-    item.classList.remove("center-img", "side-img");
-    
-    // Are we the center?
-    if (i === wrap(currentIndex)) {
-      img.classList.add("center-img"); // 640×480
-      img.classList.remove("side-img");
-    }
-    // Are we prev?
-    else if (i === wrap(currentIndex - 1) || i === wrap(currentIndex + 4)) {
-      // side image
+    img.classList.remove("side-img");
+    // "distance" from currentIndex
+    let dist = i - currentIndex;
+    // wrap around if needed
+    if (dist >  2) dist -= totalItems; 
+    if (dist < -2) dist += totalItems;
+
+    if (dist === 0) {
+      // center
+      img.style.transform = "scale(1)";
+      img.style.opacity = "1";
+    } else if (dist === 1 || dist === -1) {
+      // side
       img.classList.add("side-img");
-      img.classList.remove("center-img");
-    }
-    // Are we next?
-    else if (i === wrap(currentIndex + 1)) {
+    } else {
+      // more than 1 away => fade out or scale? 
+      // let's hide them or just do side as well
       img.classList.add("side-img");
-      img.classList.remove("center-img");
-    }
-    // Otherwise, hide
-    else {
-      // Hide (set zero width/height or display none)
-      img.classList.remove("center-img", "side-img");
-      img.style.width = "0px";
-      img.style.height = "0px";
-      img.style.opacity = "0";
-      item.style.pointerEvents = "none";
+      img.style.opacity = "0.3"; 
     }
   });
 
-  // Update subtitle for center
-  subtitle.textContent = images[wrap(currentIndex)].caption || "";
-
-  /* Slide the track left so the center item appears in middle. 
-     Each item takes up space for side or center. We'll measure. 
-  */
-  // We'll assume each item has width = side? Actually we can do a simpler approach:
-  // We'll place the center item in the middle = currentIndex * (some width)
-  // Actually let's do a 680 px offset per item (a bit bigger than side 640?).
-  // We'll do simpler: each item is 700 px wide in the track to accommodate gap + side/center. 
-  // Then we transform by -currentIndex * 700.
-  
-  const itemWidth = 700; // approximate space for each item + gap
-  track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+  // Update subtitle for the center item
+  const centerIdx = (currentIndex + totalItems) % totalItems;
+  subtitleEl.textContent = imagesData[centerIdx].caption || "";
 }
 
-/* 3) Arrows */
+/* Arrows */
 function goLeft() {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  currentIndex = (currentIndex - 1 + totalItems) % totalItems;
   updateCarousel();
   resetAutoSlide();
 }
 function goRight() {
-  currentIndex = (currentIndex + 1) % images.length;
+  currentIndex = (currentIndex + 1) % totalItems;
   updateCarousel();
   resetAutoSlide();
 }
-
 arrowLeft.addEventListener("click", goLeft);
 arrowRight.addEventListener("click", goRight);
 
-/* 4) Auto-slide */
+/* Auto-slide */
 let autoSlide = setInterval(() => {
   goRight();
-}, 4000);
-
+}, 3000);
 function resetAutoSlide() {
   clearInterval(autoSlide);
   autoSlide = setInterval(() => {
     goRight();
-  }, 4000);
+  }, 3000);
 }
 
-/* 5) Init */
+/* Initialize */
 updateCarousel();
