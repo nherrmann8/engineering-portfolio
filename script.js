@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = document.getElementById("nextBtn");
     const caption = document.getElementById("imageCaption");
 
-    let currentIndex = 2;
+    let currentIndex = 3; // Start in the middle
     const captions = [
         "quip Ultra",
         "quip Water Flosser",
@@ -15,31 +15,46 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     function updateCarousel() {
-        const imageWidth = images[0].offsetWidth;
-        const containerWidth = document.querySelector(".carousel-container").offsetWidth;
-        
-        // Center the active image
-        const offset = (containerWidth / 2) - (imageWidth / 2);
-        track.style.transform = `translateX(${offset - (currentIndex * imageWidth)}px)`;
+        const imageWidth = images[0].offsetWidth + 20; // Include spacing
+        track.style.transition = "transform 0.5s ease-in-out";
+        track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
 
         images.forEach((img, index) => {
             img.classList.toggle("active", index === currentIndex);
         });
 
-        caption.textContent = captions[currentIndex];
+        caption.textContent = captions[(currentIndex - 1) % captions.length];
     }
 
-    prevButton.addEventListener("click", function () {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateCarousel();
-    });
+    function moveToNext() {
+        if (currentIndex >= images.length - 2) {
+            track.style.transition = "none"; // Disable transition for smooth looping
+            currentIndex = 1;
+            track.style.transform = `translateX(-${currentIndex * (images[0].offsetWidth + 20)}px)`;
+        } else {
+            currentIndex++;
+        }
+        setTimeout(() => {
+            updateCarousel();
+        }, 50);
+    }
 
-    nextButton.addEventListener("click", function () {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateCarousel();
-    });
+    function moveToPrev() {
+        if (currentIndex <= 0) {
+            track.style.transition = "none"; // Disable transition for smooth looping
+            currentIndex = images.length - 3;
+            track.style.transform = `translateX(-${currentIndex * (images[0].offsetWidth + 20)}px)`;
+        } else {
+            currentIndex--;
+        }
+        setTimeout(() => {
+            updateCarousel();
+        }, 50);
+    }
 
-    // Ensure centering when the page loads
+    prevButton.addEventListener("click", moveToPrev);
+    nextButton.addEventListener("click", moveToNext);
+
     window.addEventListener("resize", updateCarousel);
     updateCarousel();
 });
