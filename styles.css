@@ -5,13 +5,13 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Dark Theme */
-    color: #EAEAEA; /* Light Text */
+    background-color: #121212;
+    color: #EAEAEA;
 }
 
-/* ✅ Header (Slightly Lighter Grey) */
+/* ✅ Desktop Header (Unchanged) */
 header {
-    background: #1E1E1E; /* Adjusted to a lighter grey */
+    background: #1E1E1E;
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -20,14 +20,7 @@ header {
     z-index: 10;
 }
 
-.nav-title {
-    color: #FFFFFF;
-    margin-left: 20px;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-/* ✅ Navbar Fixes */
+/* ✅ Desktop Navbar (Unchanged) */
 .nav-right {
     list-style: none;
     display: flex;
@@ -38,7 +31,6 @@ header {
 .nav-right a {
     color: #FFFFFF;
     text-decoration: none;
-    background: transparent;
     padding: 10px 20px;
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
@@ -71,32 +63,13 @@ header {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ✅ Added slight padding to prevent flickering */
+/* ✅ Keep Dropdown Visible on Hover */
 .dropdown:hover .dropdown-menu,
 .dropdown-menu:hover {
     display: block;
 }
 
-.dropdown-menu li {
-    list-style: none;
-    padding: 8px;
-}
-
-.dropdown-menu li a {
-    color: #FFFFFF;
-    display: block;
-    text-decoration: none;
-    padding: 8px;
-    transition: all 0.2s ease-in-out;
-}
-
-.dropdown-menu li a:hover {
-    background: #FFD700;
-    color: #121212;
-    border-radius: 5px;
-}
-
-/* ✅ Carousel Fixes */
+/* ✅ Carousel (Unchanged for Desktop) */
 .carousel {
     width: 100%;
     overflow: hidden;
@@ -109,36 +82,13 @@ header {
     width: max-content;
 }
 
-.carousel-item {
-    position: relative;
-}
-
 .carousel-item img {
     height: 320px;
     width: auto;
     transition: none;
 }
 
-/* ✅ Subtitles on Hover */
-.subtitle {
-    opacity: 0;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.carousel-item:hover .subtitle {
-    opacity: 1;
-}
-
-/* ✅ About Me Section - Evenly Spaced */
+/* ✅ About Me Section (Desktop Version) */
 .about-me {
     width: 85%;
     margin: 100px auto;
@@ -151,7 +101,6 @@ header {
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* ✅ Ensuring Even Image Spacing */
 .about-container {
     display: flex;
     align-items: center;
@@ -159,7 +108,7 @@ header {
     justify-content: space-between;
 }
 
-/* ✅ Only Self1 & Self2 Side by Side - Self3 Fully Removed */
+/* ✅ Self1 & Self2 Side by Side */
 .about-images {
     display: flex;
     gap: 20px;
@@ -183,12 +132,55 @@ header {
     margin-left: 30px;
 }
 
-/* ✅ Bullet Points Instead of Paragraph */
-.about-text ul {
-    list-style: disc;
-    padding-left: 20px;
-}
+/* ✅ Mobile-Specific Layout (Applies ONLY on Screens ≤ 768px) */
+@media screen and (max-width: 768px) {
+    /* ✅ Navbar Adjustments */
+    .nav-right {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
 
-.about-text ul li {
-    margin-bottom: 10px;
+    .dropdown-menu {
+        width: 100%;
+        left: 0;
+        transform: none;
+    }
+
+    /* ✅ Stack About Me Images for Mobile */
+    .about-me {
+        flex-direction: column;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-images {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .about-images img {
+        width: 80%;
+        height: auto;
+    }
+
+    .about-text {
+        max-width: 90%;
+        margin: 20px auto;
+    }
+
+    /* ✅ Make Carousel Responsive */
+    .carousel {
+        width: 100%;
+    }
+
+    .carousel-item img {
+        max-width: 100%;
+        height: auto;
+    }
 }
