@@ -1,22 +1,58 @@
+/* General Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 20px;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
 /* ✅ Scrolling Image Gallery */
 .scrolling-gallery {
     width: 100%;
     overflow: hidden;
-    white-space: nowrap;
     position: relative;
     margin-top: 20px;
 }
 
 .image-track {
     display: flex;
-    animation: scrollLeft 18.75s linear infinite; /* Slowed scrolling by 25% */
+    width: max-content;
+    animation: scrollLeft 25s linear infinite; /* Slowed by 25% */
 }
 
 .image-container {
     position: relative;
-    display: inline-block;
-    flex-shrink: 0;
-    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 .image-container img {
@@ -26,17 +62,15 @@
     transition: transform 0.3s ease-in-out;
 }
 
-/* ✅ Ensure Image Grows by 10% on Hover */
+/* ✅ Hover Effect - Increase Size by 10% */
 .image-container:hover img {
     transform: scale(1.1); /* Image expands by 10%, pushing others aside */
 }
 
 /* ✅ Subtitle Appears on Hover */
-.image-container::after {
-    content: attr(data-caption);
+.subtitle {
     position: absolute;
     bottom: 0;
-    left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.7);
     color: white;
@@ -47,11 +81,11 @@
     transition: opacity 0.3s;
 }
 
-.image-container:hover::after {
+.image-container:hover .subtitle {
     opacity: 1;
 }
 
-/* ✅ Continuous Scrolling with Seamless Loop */
+/* ✅ Continuous Scrolling */
 @keyframes scrollLeft {
     from {
         transform: translateX(0);
