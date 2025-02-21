@@ -9,28 +9,29 @@
 
 .image-track {
     display: flex;
-    animation: scrollLeft 18.75s linear infinite; /* Slowed down by 25% */
+    animation: scrollLeft 18.75s linear infinite; /* Slowed scrolling by 25% */
 }
 
 .image-container {
     position: relative;
     display: inline-block;
     flex-shrink: 0;
-}
-
-.image-container img {
-    height: 312.5px; /* Increased size by 25% (original: 250px) */
-    width: auto;
-    display: block;
     transition: transform 0.3s;
 }
 
-/* ✅ Hover Effects */
-.image-container:hover img {
-    transform: scale(1.1); /* Increased size by 10% */
+.image-container img {
+    height: 312.5px; /* Increased size by 25% */
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
 }
 
-/* ✅ Subtitle on Hover */
+/* ✅ Ensure Image Grows by 10% on Hover */
+.image-container:hover img {
+    transform: scale(1.1); /* Image expands by 10%, pushing others aside */
+}
+
+/* ✅ Subtitle Appears on Hover */
 .image-container::after {
     content: attr(data-caption);
     position: absolute;
@@ -50,12 +51,12 @@
     opacity: 1;
 }
 
-/* ✅ Continuous Scrolling Animation */
+/* ✅ Continuous Scrolling with Seamless Loop */
 @keyframes scrollLeft {
     from {
         transform: translateX(0);
     }
     to {
-        transform: translateX(-50%); /* Looping effect with duplicate images */
+        transform: translateX(-50%);
     }
 }
