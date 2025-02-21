@@ -32,22 +32,17 @@
     </nav>
   </header>
 
-  <!-- Carousel (3-image track) -->
+  <!-- Carousel -->
   <section class="carousel-section">
-    <!-- The visible window -->
     <div class="carousel-viewport">
-      <!-- Track of all images in a row -->
-      <div class="carousel-track" id="carouselTrack">
-        <!-- We'll dynamically create items in script.js for each image,
-             but we place them here as placeholders for structure. -->
+      <div id="carousel-track" class="carousel-track">
+        <!-- We'll generate the 5 items in script.js so we can control the order & scaling -->
       </div>
     </div>
-
-    <!-- Controls below the carousel -->
     <div class="carousel-controls">
-      <button class="arrow-btn arrow-left">&larr;</button>
-      <span id="subtitle" class="subtitle">Subtitle Here</span>
-      <button class="arrow-btn arrow-right">&rarr;</button>
+      <button class="arrow-btn arrow-left">&#8592;</button>
+      <span id="subtitle" class="subtitle"></span>
+      <button class="arrow-btn arrow-right">&#8594;</button>
     </div>
   </section>
 
@@ -55,9 +50,10 @@
   <section class="about">
     <h2>About Me</h2>
     <p>
-      This final carousel displays three images at once: a center image (full size, 4:3 ratio),
-      plus smaller previews on the left and right. Arrows are underneath, and the subtitle is 
-      between them. A smooth sliding animation transitions from one set of images to the next.
+      This carousel shows three images at once—center plus two side previews—using a
+      smooth sliding track. The order is: quip Ultra, quip Water Flosser, Shark,
+      Artificial Stomach, Zio iRhythm. Each image is 4:3. Arrows and subtitle are below 
+      the carousel.
     </p>
   </section>
 
