@@ -1,17 +1,17 @@
 /* ✅ Import Modern Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff; /* Primary: White */
-    color: #1A3E2F; /* Secondary: Green */
+    background-color: #121212; /* Dark Theme */
+    color: #EAEAEA; /* Light Text */
 }
 
-/* ✅ Header with New Color Scheme */
+/* ✅ Header */
 header {
-    background: #1A3E2F; /* Green */
+    background: #181818;
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -19,7 +19,7 @@ header {
 }
 
 .nav-title {
-    color: #FFD700; /* Gold Accent */
+    color: #FFFFFF;
     margin-left: 20px;
     font-size: 24px;
     font-weight: bold;
@@ -29,22 +29,23 @@ header {
 .nav-right {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
     margin-right: 20px;
 }
 
 .nav-right a {
-    color: #ffffff;
+    color: #FFFFFF;
     text-decoration: none;
-    background: #1A3E2F; /* Green */
+    background: transparent;
     padding: 10px 20px;
-    border-radius: 25px;
+    border-radius: 5px;
     transition: all 0.3s ease-in-out;
+    font-weight: 500;
 }
 
 .nav-right a:hover {
-    background: #FFD700; /* Gold Accent */
-    color: #1A3E2F;
+    background: #333333;
+    color: #FFD700;
 }
 
 /* ✅ Fixed Dropdown Menu */
@@ -55,13 +56,15 @@ header {
 .dropdown-menu {
     display: none;
     position: absolute;
-    right: 0;
-    background: #1A3E2F; /* Green */
-    border-radius: 5px;
-    width: 200px;
-    padding: 10px;
-    z-index: 10;
-    text-align: left;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #262626;
+    border-radius: 8px;
+    width: 220px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-menu li {
@@ -70,15 +73,17 @@ header {
 }
 
 .dropdown-menu li a {
-    color: #ffffff;
+    color: #FFFFFF;
     display: block;
     text-decoration: none;
+    padding: 8px;
+    transition: all 0.2s ease-in-out;
 }
 
 .dropdown-menu li a:hover {
-    background: #FFD700; /* Gold */
-    color: #1A3E2F;
-    padding: 5px;
+    background: #FFD700;
+    color: #121212;
+    border-radius: 5px;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -94,7 +99,7 @@ header {
 
 .carousel-track {
     display: flex;
-    animation: scrollLeft 60s linear infinite;
+    animation: scrollLeft 55s linear infinite;
     width: max-content;
 }
 
@@ -103,7 +108,7 @@ header {
 }
 
 .carousel-item img {
-    height: 300px;
+    height: 320px;
     width: auto;
     transition: transform 0.3s ease-in-out;
 }
@@ -119,10 +124,11 @@ header {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(26, 62, 47, 0.9);
+    background: rgba(0, 0, 0, 0.8);
     color: white;
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 5px;
+    font-size: 14px;
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -130,16 +136,17 @@ header {
     opacity: 1;
 }
 
-/* ✅ About Me Section (Improved Design) */
+/* ✅ About Me Section (Premium Layout) */
 .about-me {
     width: 90%;
-    margin: 80px auto;
-    padding: 40px;
+    margin: 100px auto;
+    padding: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(to right, #1A3E2F, #ffffff);
+    background: #181818;
     border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .about-container {
@@ -150,13 +157,13 @@ header {
 
 .about-images {
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 .about-left img,
 .about-center img,
 .about-right img {
-    width: 250px;
+    width: 280px;
     height: 500px;
     object-fit: cover;
     border-radius: 10px;
@@ -166,5 +173,5 @@ header {
     flex: 1;
     text-align: left;
     max-width: 50%;
-    color: #1A3E2F;
+    color: #EAEAEA;
 }
