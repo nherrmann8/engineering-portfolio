@@ -1,30 +1,34 @@
-/* ✅ General Fixes */
+/* ✅ New Trendy Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #173B6C;
-    color: #EAEAEA;
+    background-color: #1A1A2E; /* Dark blue-purple */
+    color: #EAEAEA; /* Light gray for text */
     text-align: center;
 }
 
-/* ✅ Fixed Navigation */
+/* ✅ Enhanced Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #152B50;
+    background: #16213E; /* Darker shade of blue */
     padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 10;
 }
 
+/* ✅ Pill-Shaped Buttons */
 nav ul {
     list-style: none;
     display: flex;
     gap: 15px;
     padding: 0;
+    position: relative;
 }
 
 nav ul li {
@@ -32,19 +36,52 @@ nav ul li {
 }
 
 nav a {
-    color: white;
+    color: #EAEAEA;
     text-decoration: none;
+    font-weight: 400;
+    background: #533483; /* Vibrant purple-blue */
     padding: 10px 20px;
-    border-radius: 25px;
-    background: #2A4D85;
+    border-radius: 25px; /* Pill shape */
     transition: background 0.3s ease;
 }
 
 nav a:hover {
-    background: #3A5DAF;
+    background: #7A3E9D; /* Lighter purple */
 }
 
-/* ✅ Fixed Scrolling Gallery */
+/* ✅ Fixed Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #16213E; /* Same as header */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    width: 200px;
+    border-radius: 15px;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.dropdown-menu a {
+    color: #EAEAEA;
+    padding: 8px 10px;
+    display: block;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #533483;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+/* ✅ Scrolling Image Gallery */
 .scrolling-gallery {
     width: 100%;
     overflow: hidden;
@@ -55,35 +92,47 @@ nav a:hover {
 .image-track {
     display: flex;
     width: max-content;
-    animation: scrollLeft 50s linear infinite; /* Adjusted speed */
+    animation: scrollLeft 65s linear infinite; /* Slowed down further */
 }
 
 .image-container {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin: 0;
+    padding: 0;
 }
 
 .image-container img {
-    width: 250px;
-    transition: transform 0.3s ease;
+    height: 312.5px;
+    width: auto;
+    display: block;
+    transition: opacity 0.3s ease-in-out;
 }
 
-/* ✅ Subtitles Appear Only on Hover */
+/* ✅ Subtitles Only Appear on Hover */
 .subtitle {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+    color: #EAEAEA;
+    text-align: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s;
 }
 
 .image-container:hover .subtitle {
     opacity: 1;
 }
 
-/* ✅ Hover Effect */
-.image-container:hover img {
-    transform: scale(1.1);
+/* ✅ Continuous Scrolling */
+@keyframes scrollLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
