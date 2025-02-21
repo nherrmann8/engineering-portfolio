@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     let scrollAmount = 0;
-    const scrollSpeed = 0.5; // Adjusted for correct speed
+    const scrollSpeed = 0.5;
 
     function moveCarousel() {
         scrollAmount -= scrollSpeed;
@@ -37,4 +37,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     moveCarousel();
+
+    // ✅ Stop scrolling on hover
+    document.querySelectorAll(".carousel-item img").forEach(img => {
+        img.addEventListener("mouseenter", () => {
+            track.style.animationPlayState = "paused";
+        });
+        img.addEventListener("mouseleave", () => {
+            track.style.animationPlayState = "running";
+        });
+    });
 });
