@@ -42,13 +42,12 @@ header {
     color: #FFD700;
 }
 
-/* ✅ Fixed Dropdown Menu */
+/* ✅ Fixed Dropdown Menu - Restored Old Aesthetic */
 .dropdown {
     position: relative;
     z-index: 20;
 }
 
-/* ✅ Adjusted Dropdown Menu Position */
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -61,6 +60,25 @@ header {
     padding: 12px;
     text-align: center;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu li {
+    list-style: none;
+    padding: 8px;
+}
+
+.dropdown-menu li a {
+    color: #FFFFFF;
+    display: block;
+    text-decoration: none;
+    padding: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.dropdown-menu li a:hover {
+    background: #FFD700;
+    color: #121212;
+    border-radius: 5px;
 }
 
 /* ✅ Keep Dropdown Visible on Hover */
@@ -141,6 +159,12 @@ header {
         text-align: center;
     }
 
+    /* ✅ Move "Projects" Below "Resume" */
+    .dropdown {
+        order: 3; /* Pushes it below Resume */
+    }
+
+    /* ✅ Dropdown Menu - Full Width on Mobile */
     .dropdown-menu {
         width: 100%;
         left: 0;
@@ -174,13 +198,9 @@ header {
         margin: 20px auto;
     }
 
-    /* ✅ Make Carousel Responsive */
-    .carousel {
-        width: 100%;
-    }
-
+    /* ✅ Scale Down Carousel Images for Mobile */
     .carousel-item img {
-        max-width: 100%;
-        height: auto;
+        height: 200px; /* Reduced size */
+        width: auto;
     }
 }
