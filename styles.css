@@ -46,18 +46,19 @@ nav a {
     display: block;
 }
 
+/* Carousel Layout */
 .carousel-container {
     position: relative;
     width: 80%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 50px auto;
     overflow: hidden;
 }
 
 .carousel {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     position: relative;
     width: 100%;
 }
@@ -66,34 +67,41 @@ nav a {
     display: flex;
     transition: transform 0.5s ease-in-out;
     align-items: center;
-    gap: 20px; /* Adds buffer between images */
+    justify-content: center;
 }
 
+/* Center Image */
 .carousel-image {
     width: 60%;
-    max-width: 500px;
+    max-width: 600px;
     height: auto;
     aspect-ratio: 4 / 3;
     transition: opacity 0.5s, transform 0.5s;
     object-fit: cover;
 }
 
-.carousel-image.active {
-    transform: scale(1.1);
-    opacity: 1;
-}
-
+/* Side Images */
 .carousel-image:not(.active) {
-    width: 50%;
+    width: 40%;
     opacity: 0.5;
-    transform: scale(0.9);
+    transform: scale(0.8);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
+/* Subtitle (Centered) */
+#imageCaption {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Arrows Positioned Below Subtitle */
 .carousel-controls {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    width: 120px;
+    margin: 15px auto;
 }
 
 button {
@@ -101,7 +109,6 @@ button {
     color: white;
     border: none;
     padding: 10px 15px;
-    margin: 10px;
     cursor: pointer;
     font-size: 18px;
     border-radius: 5px;
@@ -110,10 +117,4 @@ button {
 
 button:hover {
     background: #666;
-}
-
-#imageCaption {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
 }
