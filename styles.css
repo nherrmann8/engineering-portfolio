@@ -1,65 +1,21 @@
-/* ✅ Fix Navigation Bar Layout */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #222;
-    padding: 20px;
-    color: white;
-    flex-wrap: wrap;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    position: relative;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-}
-
-/* ✅ Fix Dropdown Menu */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    width: 150px;
-    flex-direction: column;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
 /* ✅ Fix Carousel Layout */
 .carousel-container {
     position: relative;
     width: 80%;
     max-width: 900px;
     margin: 50px auto;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 .carousel {
     display: flex;
     align-items: center;
-    width: 100%;
     justify-content: center;
+    width: 100%;
+    position: relative;
 }
 
 .carousel-track {
@@ -68,10 +24,10 @@ nav a {
     transition: transform 0.5s ease-in-out;
     align-items: center;
     justify-content: center;
-    position: relative;
+    width: 100%;
 }
 
-/* ✅ Fix Image Scaling */
+/* ✅ Fix Center Image */
 .carousel-image {
     width: 30%;
     height: auto;
@@ -81,7 +37,7 @@ nav a {
     position: relative;
 }
 
-/* ✅ Ensure Center Image is Prominent */
+/* ✅ Ensure Center Image is Fixed */
 .carousel-image.active {
     width: 50%;
     transform: scale(1.2);
@@ -89,21 +45,14 @@ nav a {
     z-index: 3;
 }
 
-/* ✅ Fix Side Images */
+/* ✅ Adjust Side Images */
 .carousel-image:not(.active) {
     opacity: 0.5;
     transform: scale(0.9);
     z-index: 1;
 }
 
-/* ✅ Subtitle */
-#imageCaption {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-/* ✅ Fix Buttons */
+/* ✅ Fix Navigation Buttons */
 .carousel-controls {
     display: flex;
     justify-content: center;
