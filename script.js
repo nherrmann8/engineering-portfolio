@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     function updateCarousel() {
-        const trackWidth = track.scrollWidth;
         const imageWidth = images[0].offsetWidth;
         const containerWidth = document.querySelector(".carousel-container").offsetWidth;
         
