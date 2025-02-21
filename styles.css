@@ -1,5 +1,5 @@
 /* -----------------------------
-   Global
+   Global & Header
 ----------------------------- */
 * {
   margin: 0;
@@ -12,9 +12,7 @@ body {
   color: #333;
 }
 
-/* -----------------------------
-   Header
------------------------------ */
+/* Header */
 header {
   display: flex;
   align-items: center;
@@ -59,9 +57,9 @@ header {
   display: none;
   position: absolute;
   top: 100%;
-  left: 50%; 
+  left: 50%;
   transform: translateX(-50%);
-  background: #444; /* fully opaque */
+  background: #444; /* fully opaque, no transparency */
   min-width: 160px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
@@ -83,92 +81,74 @@ header {
    Carousel
 ----------------------------- */
 .carousel-section {
-  width: 90%;
   max-width: 1200px;
   margin: 40px auto;
   text-align: center;
 }
-
-/* The viewport shows 3 images at once */
 .carousel-viewport {
   width: 100%;
-  overflow: hidden; 
+  overflow: hidden;
   position: relative;
   margin-bottom: 10px;
 }
-
-/* The track holds all images in a row, 
-   we transform: translateX(...) to slide */
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease;
-  gap: 20px; /* spacing between images */
+  /* We’ll have 5 items in a row, each 1 “slot.” */
 }
 
-/* We'll create each .carousel-item dynamically 
-   in script.js for each image. 
-   The center item is full-size 4:3, side items smaller. 
-*/
+/* Each .carousel-item = one slot (3 slots visible at once) */
 .carousel-item {
-  flex: 0 0 auto; /* don't shrink or grow */
+  flex: 0 0 33.33%; /* 3 items visible within 100% viewport = 33.33% each */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-/* Center image => 640×480. 
-   Side images => 480×360 => 25% smaller. 
-   We'll handle in script.js by toggling .center or .side classes.
+/* Base image styling: 4:3 ratio = 600×450 for center, 75% scale for side. 
+   We'll let JS scale/opacity them via classes.
 */
 .carousel-item img {
   object-fit: cover;
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
   cursor: pointer;
+  width: 600px; 
+  height: 450px; 
+  opacity: 1;
+  transform: scale(1);
 }
 
-/* The classes we apply in JS to scale/opacity images */
-.center-img {
-  width: 640px;
-  height: 480px;
-  opacity: 1;
-}
+/* We'll toggle classes in JS for side images */
 .side-img {
-  width: 480px;
-  height: 360px;
+  transform: scale(0.75);  /* 25% smaller */
   opacity: 0.5;
 }
 
-/* Controls below the viewport */
+/* Subtitle is shown by the .carousel-controls below */
 .carousel-controls {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px; /* space between arrows and subtitle */
-  margin-top: 10px;
+  gap: 30px;
 }
-
-/* Arrows below the images */
 .arrow-btn {
   background: #2f2f2f;
   color: #fff;
   border: none;
-  padding: 8px 14px;
+  padding: 8px 12px;
   cursor: pointer;
   font-size: 1rem;
   border-radius: 4px;
-  opacity: 0.7;
-  transition: opacity 0.2s;
+  opacity: 0.8;
 }
 .arrow-btn:hover {
   opacity: 1;
 }
-
-/* Subtitle in the center */
 .subtitle {
   font-size: 1rem;
-  color: #555;
-  min-width: 100px;
+  color: #333;
+  min-width: 120px;
   text-align: center;
 }
 
