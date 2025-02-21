@@ -1,41 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const track = document.querySelector(".carousel-track");
-    const images = document.querySelectorAll(".carousel-image");
-    const prevButton = document.getElementById("prevBtn");
-    const nextButton = document.getElementById("nextBtn");
-    const caption = document.getElementById("imageCaption");
+    const track = document.querySelector(".image-track");
+    const images = document.querySelectorAll(".image-container img");
 
-    let currentIndex = 1;
-    const captions = [
-        "Zio iRhythm",
-        "quip Ultra",
-        "quip Water Flosser",
-        "Shark EvoPower",
-        "Artificial Stomach"
-    ];
+    let animationPaused = false;
 
-    function updateCarousel() {
-        images.forEach((img, index) => {
-            img.classList.toggle("active", index === currentIndex);
+    images.forEach(img => {
+        img.addEventListener("mouseenter", () => {
+            track.style.animationPlayState = "paused"; // ✅ Stop scrolling on hover
         });
-        caption.textContent = captions[currentIndex];
 
-        // ✅ Fix center image positioning
-        track.style.transform = `translateX(calc(50% - ${images[currentIndex].offsetLeft}px))`;
-    }
-
-    function moveToNext() {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateCarousel();
-    }
-
-    function moveToPrev() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateCarousel();
-    }
-
-    prevButton.addEventListener("click", moveToPrev);
-    nextButton.addEventListener("click", moveToNext);
-
-    updateCarousel();
+        img.addEventListener("mouseleave", () => {
+            track.style.animationPlayState = "running"; // ✅ Resume scrolling when mouse leaves
+        });
+    });
 });
