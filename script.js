@@ -1,6 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ JavaScript Loaded Successfully");
+
     const track = document.querySelector(".image-track");
     const images = document.querySelectorAll(".image-container img");
+
+    if (!track) {
+        console.error("❌ ERROR: Carousel track not found!");
+        return;
+    }
+
+    console.log("✅ Carousel Initialized");
 
     // ✅ Duplicate images to create an infinite loop
     track.innerHTML += track.innerHTML;
