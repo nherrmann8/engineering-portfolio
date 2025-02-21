@@ -1,170 +1,108 @@
-/* -----------------------------
-   Global & Header
------------------------------ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 body {
-  font-family: 'Montserrat', sans-serif;
-  background: #f5f5f5;
-  color: #333;
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
 }
 
-/* Header */
 header {
-  display: flex;
-  align-items: center;
-  background: #2f2f2f;
-  padding: 10px 20px;
-}
-.site-title {
-  color: #fff;
-  font-weight: 600;
-  font-size: 1.6rem;
-  margin-right: 40px;
-}
-.nav-links {
-  margin-left: auto;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-.nav-links a {
-  color: #ccc;
-  text-decoration: none;
-}
-.nav-links a:hover {
-  color: #fff;
-}
-/* Dropdown */
-.dropdown {
-  position: relative;
-}
-.dropbtn {
-  background: none;
-  border: none;
-  color: #ccc;
-  font: inherit;
-  cursor: pointer;
-  font-weight: 500;
-}
-.dropbtn:hover {
-  color: #fff;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #444; /* fully opaque, no transparency */
-  min-width: 160px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
-.dropdown-content a {
-  display: block;
-  padding: 8px 12px;
-  text-decoration: none;
-  color: #ccc;
-}
-.dropdown-content a:hover {
-  background: #555;
-  color: #fff;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 20px;
+    color: white;
 }
 
-/* -----------------------------
-   Carousel
------------------------------ */
-.carousel-section {
-  max-width: 1200px;
-  margin: 40px auto;
-  text-align: center;
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
 }
-.carousel-viewport {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 10px;
+
+nav ul li {
+    margin-left: 20px;
+    position: relative;
 }
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 150px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.carousel-container {
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-  /* We’ll have 5 items in a row, each 1 “slot.” */
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
-/* Each .carousel-item = one slot (3 slots visible at once) */
-.carousel-item {
-  flex: 0 0 33.33%; /* 3 items visible within 100% viewport = 33.33% each */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.carousel-image {
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    transition: opacity 0.5s, transform 0.5s;
+    object-fit: cover;
 }
 
-/* Base image styling: 4:3 ratio = 600×450 for center, 75% scale for side. 
-   We'll let JS scale/opacity them via classes.
-*/
-.carousel-item img {
-  object-fit: cover;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  cursor: pointer;
-  width: 600px; 
-  height: 450px; 
-  opacity: 1;
-  transform: scale(1);
+.carousel-image:not(.active) {
+    width: 40%;
+    opacity: 0.5;
+    transform: scale(0.8);
 }
 
-/* We'll toggle classes in JS for side images */
-.side-img {
-  transform: scale(0.75);  /* 25% smaller */
-  opacity: 0.5;
-}
-
-/* Subtitle is shown by the .carousel-controls below */
 .carousel-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-}
-.arrow-btn {
-  background: #2f2f2f;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 4px;
-  opacity: 0.8;
-}
-.arrow-btn:hover {
-  opacity: 1;
-}
-.subtitle {
-  font-size: 1rem;
-  color: #333;
-  min-width: 120px;
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
 }
 
-/* -----------------------------
-   About
------------------------------ */
-.about {
-  width: 80%;
-  max-width: 800px;
-  margin: 0 auto 60px auto;
-  text-align: left;
+button {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background 0.3s;
 }
-.about h2 {
-  font-size: 1.4rem;
-  margin: 20px 0;
+
+button:hover {
+    background: #666;
 }
-.about p {
-  line-height: 1.6;
+
+#imageCaption {
+    font-size: 18px;
+    font-weight: bold;
 }
