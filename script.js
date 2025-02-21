@@ -4,7 +4,7 @@ const title = document.getElementById("carousel-title");
 
 function updateCarousel() {
     items.forEach((item, index) => {
-        item.classList.remove("active");
+        item.classList.remove("center", "left", "right");
         item.style.opacity = "0.5";
         item.style.width = "200px";
         item.style.display = "none";
@@ -13,15 +13,17 @@ function updateCarousel() {
     const prevIndex = (currentIndex - 1 + items.length) % items.length;
     const nextIndex = (currentIndex + 1) % items.length;
 
+    items[prevIndex].classList.add("left");
     items[prevIndex].style.display = "block";
     items[prevIndex].style.opacity = "0.5";
     items[prevIndex].style.width = "200px";
 
-    items[currentIndex].classList.add("active");
+    items[currentIndex].classList.add("center");
     items[currentIndex].style.display = "block";
     items[currentIndex].style.opacity = "1";
     items[currentIndex].style.width = "300px";
 
+    items[nextIndex].classList.add("right");
     items[nextIndex].style.display = "block";
     items[nextIndex].style.opacity = "0.5";
     items[nextIndex].style.width = "200px";
