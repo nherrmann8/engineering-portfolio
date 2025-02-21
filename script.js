@@ -19,13 +19,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // ✅ Ensure Scroll Completely Stops on Hover
+    track.addEventListener("mouseenter", () => {
+        track.style.animationPlayState = "paused";
+    });
+
+    track.addEventListener("mouseleave", () => {
+        track.style.animationPlayState = "running";
+    });
+
     // ✅ Continuous Scrolling Fix
     function resetScroll() {
         if (!isPaused) {
             track.style.transition = "none";
             track.style.transform = "translateX(0)";
             setTimeout(() => {
-                track.style.transition = "transform 48.83s linear";
+                track.style.transition = "transform 65s linear";
                 track.style.transform = "translateX(-50%)";
             }, 50);
         }
