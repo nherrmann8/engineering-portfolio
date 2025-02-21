@@ -2,30 +2,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const track = document.querySelector(".image-track");
     const images = document.querySelectorAll(".image-container img");
 
-    // ✅ Duplicate images to create an infinite loop
+    // ✅ Restored Continuous Scrolling Functionality
     track.innerHTML += track.innerHTML;
 
     let isPaused = false;
 
     images.forEach(img => {
         img.addEventListener("mouseenter", () => {
-            track.style.animationPlayState = "paused"; // ✅ Stop scrolling on hover
+            track.style.animationPlayState = "paused";
             isPaused = true;
         });
 
         img.addEventListener("mouseleave", () => {
-            track.style.animationPlayState = "running"; // ✅ Resume scrolling when mouse leaves
+            track.style.animationPlayState = "running";
             isPaused = false;
         });
     });
 
-    // ✅ Continuous Scrolling Fix
     function resetScroll() {
         if (!isPaused) {
             track.style.transition = "none";
             track.style.transform = "translateX(0)";
             setTimeout(() => {
-                track.style.transition = "transform 59.36s linear";
+                track.style.transition = "transform 53.46s linear";
                 track.style.transform = "translateX(-50%)";
             }, 50);
         }
