@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nathan Herrmann Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <h1>Nathan Herrmann Portfolio</h1>
+        <div class="logo">Nathan Herrmann Portfolio</div>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -18,41 +18,137 @@
                     <ul class="dropdown-menu">
                         <li><a href="#">quip Ultra</a></li>
                         <li><a href="#">quip Water Flosser</a></li>
-                        <li><a href="#">Shark EvoPower</a></li>
+                        <li><a href="#">Shark EvoPower System</a></li>
                         <li><a href="#">Artificial Stomach</a></li>
-                        <li><a href="#">Zio iRhythm</a></li>
+                        <li><a href="#">iRhythm Zio</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Resume</a></li>
             </ul>
         </nav>
     </header>
-
-    <section class="carousel-container">
+    
+    <main>
         <div class="carousel">
-            <div class="carousel-track">
-                <div class="carousel-item active">
+            <button id="prev">&#9664;</button>
+            <div class="carousel-container">
+                <div class="carousel-item" data-title="quip Ultra">
                     <img src="images/ultra1.jpg" alt="quip Ultra">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-title="quip Water Flosser">
                     <img src="images/flosser1.jpg" alt="quip Water Flosser">
                 </div>
-                <div class="carousel-item">
-                    <img src="images/shark1.jpg" alt="Shark EvoPower">
+                <div class="carousel-item active" data-title="Shark EvoPower System">
+                    <img src="images/shark1.jpg" alt="Shark EvoPower System">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-title="Artificial Stomach">
                     <img src="images/stomach1.jpg" alt="Artificial Stomach">
                 </div>
-                <div class="carousel-item">
-                    <img src="images/zio1.jpg" alt="Zio iRhythm">
+                <div class="carousel-item" data-title="iRhythm Zio">
+                    <img src="images/zio1.jpg" alt="iRhythm Zio">
                 </div>
             </div>
+            <button id="next">&#9654;</button>
         </div>
-        <div class="carousel-controls">
-            <button id="prevBtn"><img src="images/arrow-left.png" alt="Previous"></button>
-            <p id="imageCaption">quip Ultra</p>
-            <button id="nextBtn"><img src="images/arrow-right.png" alt="Next"></button>
-        </div>
-    </section>
+        <div class="subtitle" id="carousel-title">Shark EvoPower System</div>
+    </main>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #222;
+            color: white;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: #444;
+            padding: 10px;
+            list-style: none;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            max-width: 800px;
+        }
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .carousel-item {
+            width: 200px;
+            opacity: 0.5;
+            transition: all 0.5s;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+        }
+        .carousel-item.active {
+            width: 300px;
+            opacity: 1;
+        }
+        .subtitle {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+
+    <script>
+        let currentIndex = 2;
+        const items = document.querySelectorAll(".carousel-item");
+        const title = document.getElementById("carousel-title");
+        function updateCarousel() {
+            items.forEach((item, index) => {
+                item.classList.remove("active");
+                item.style.opacity = "0.5";
+                item.style.width = "200px";
+            });
+            items[currentIndex].classList.add("active");
+            items[currentIndex].style.opacity = "1";
+            items[currentIndex].style.width = "300px";
+            title.textContent = items[currentIndex].dataset.title;
+        }
+        document.getElementById("next").addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        });
+        document.getElementById("prev").addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        });
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        }, 3000);
+    </script>
 </body>
 </html>
