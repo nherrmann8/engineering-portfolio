@@ -1,17 +1,17 @@
-/* ✅ Restored Correct Fonts & Colors */
+/* ✅ Import Modern Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1A1A2E;
-    color: #EAEAEA;
+    background-color: #ffffff; /* Primary: White */
+    color: #1A3E2F; /* Secondary: Green */
 }
 
-/* ✅ Header Fixes */
+/* ✅ Header with New Color Scheme */
 header {
-    background: #16213E;
+    background: #1A3E2F; /* Green */
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -19,9 +19,13 @@ header {
 }
 
 .nav-title {
+    color: #FFD700; /* Gold Accent */
     margin-left: 20px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
+/* ✅ Navbar Fixes */
 .nav-right {
     list-style: none;
     display: flex;
@@ -30,11 +34,17 @@ header {
 }
 
 .nav-right a {
-    color: #EAEAEA;
+    color: #ffffff;
     text-decoration: none;
-    background: #533483;
+    background: #1A3E2F; /* Green */
     padding: 10px 20px;
     border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-right a:hover {
+    background: #FFD700; /* Gold Accent */
+    color: #1A3E2F;
 }
 
 /* ✅ Fixed Dropdown Menu */
@@ -46,11 +56,29 @@ header {
     display: none;
     position: absolute;
     right: 0;
-    background: #533483;
-    border-radius: 10px;
+    background: #1A3E2F; /* Green */
+    border-radius: 5px;
     width: 200px;
     padding: 10px;
     z-index: 10;
+    text-align: left;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    padding: 8px;
+}
+
+.dropdown-menu li a {
+    color: #ffffff;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background: #FFD700; /* Gold */
+    color: #1A3E2F;
+    padding: 5px;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -66,8 +94,12 @@ header {
 
 .carousel-track {
     display: flex;
-    animation: scrollLeft 65s linear infinite;
+    animation: scrollLeft 60s linear infinite;
     width: max-content;
+}
+
+.carousel-item {
+    position: relative;
 }
 
 .carousel-item img {
@@ -87,7 +119,7 @@ header {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(26, 62, 47, 0.9);
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
@@ -98,22 +130,21 @@ header {
     opacity: 1;
 }
 
-/* ✅ About Me Section (Modern Design) */
+/* ✅ About Me Section (Improved Design) */
 .about-me {
     width: 90%;
     margin: 80px auto;
-    padding: 60px;
-    background: linear-gradient(to right, #1A1A2E, transparent);
+    padding: 40px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, #1A3E2F, #ffffff);
     border-radius: 20px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .about-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
 }
 
@@ -122,28 +153,18 @@ header {
     gap: 15px;
 }
 
-.about-left img {
-    width: 260px;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.about-right {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
+.about-left img,
+.about-center img,
 .about-right img {
-    width: 260px;
-    height: 245px;
+    width: 250px;
+    height: 500px;
     object-fit: cover;
     border-radius: 10px;
 }
 
 .about-text {
     flex: 1;
-    text-align: right;
+    text-align: left;
     max-width: 50%;
+    color: #1A3E2F;
 }
