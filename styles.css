@@ -1,32 +1,30 @@
-/* ✅ Fixed Layout Issues */
+/* ✅ General Fixes */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #173B6C; /* Slightly bluer shade */
+    background-color: #173B6C;
     color: #EAEAEA;
     text-align: center;
 }
 
-/* ✅ Fixed Header */
+/* ✅ Fixed Navigation */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #152B50; /* Adjusted for a bluer tone */
+    background: #152B50;
     padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 10;
 }
 
-/* ✅ Fixed Navigation */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px;
     padding: 0;
-    position: relative;
 }
 
 nav ul li {
@@ -38,44 +36,12 @@ nav a {
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 25px;
-    background: #2A4D85; /* Bluer tone */
+    background: #2A4D85;
     transition: background 0.3s ease;
 }
 
 nav a:hover {
     background: #3A5DAF;
-}
-
-/* ✅ Fixed Dropdown Menu Placement */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 120%; /* Shifted further down */
-    left: 50%;
-    transform: translateX(-50%);
-    background: #152B50;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    width: 200px;
-    border-radius: 15px;
-    flex-direction: column;
-    z-index: 10;
-}
-
-.dropdown-menu a {
-    color: #EAEAEA;
-    padding: 8px 10px;
-    display: block;
-    text-decoration: none;
-    border-radius: 10px;
-}
-
-.dropdown-menu a:hover {
-    background-color: #3A5DAF;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: flex;
 }
 
 /* ✅ Fixed Scrolling Gallery */
@@ -89,10 +55,10 @@ nav a:hover {
 .image-track {
     display: flex;
     width: max-content;
-    animation: scrollLeft 53.46s linear infinite; /* Adjusted speed */
+    animation: scrollLeft 50s linear infinite; /* Adjusted speed */
 }
 
-/* ✅ About Me Section Fix */
+/* ✅ Fixed About Me Section */
 .about-me {
     display: flex;
     align-items: center;
@@ -103,7 +69,6 @@ nav a:hover {
 
 .about-images {
     display: grid;
-    grid-template-columns: 1fr;
     grid-template-rows: 2fr 1fr;
     gap: 10px;
     max-width: 300px;
@@ -114,24 +79,8 @@ nav a:hover {
     border-radius: 10px;
 }
 
-.about-images .small-images {
-    display: flex;
-    gap: 10px;
-}
-
 .about-text {
     flex: 1;
     padding-left: 30px;
     text-align: left;
-}
-
-.about-text h2 {
-    font-size: 24px;
-    color: #EAEAEA;
-}
-
-.about-text p {
-    font-size: 16px;
-    color: #CFCFCF;
-    margin-top: 10px;
 }
