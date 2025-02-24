@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!isPaused) {
             scrollAmount -= scrollSpeed;
             track.style.transform = `translateX(${scrollAmount}px)`;
-    
+
             if (Math.abs(scrollAmount) >= items[0].offsetWidth * items.length) {
                 scrollAmount = 0;
                 track.style.transition = "none";
@@ -51,19 +51,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ✅ Subtitles appear on hover
-    document.querySelectorAll(".carousel-item").forEach(item => {
-        item.addEventListener("mouseenter", () => {
-            let subtitle = item.querySelector(".subtitle");
-            if (subtitle) {
-                subtitle.style.opacity = "1";
-            }
-        });
-        item.addEventListener("mouseleave", () => {
-            let subtitle = item.querySelector(".subtitle");
-            if (subtitle) {
-                subtitle.style.opacity = "0";
-            }
+    // ✅ Dropdown menu fix for mobile
+    document.querySelectorAll(".dropdown > a").forEach(dropdown => {
+        dropdown.addEventListener("click", function (e) {
+            e.preventDefault();
+            let menu = this.nextElementSibling;
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
         });
     });
+
+    // ✅ Close dropdown when clicking outside
+    document.addEventListener("click", function (e) {
+        if (!e.target.closest(".dropdown")) {
+            document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                menu.style.display = "none";
+            });
+        }
+    });
+
 });
