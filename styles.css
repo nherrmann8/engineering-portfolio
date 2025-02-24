@@ -7,7 +7,7 @@ body {
     padding: 0;
     background-color: #121212; /* Dark Theme */
     color: #EAEAEA; /* Light Text */
-    font-size: 1rem; /* Restored original size */
+    font-size: 1rem; /* Standard Font Size */
 }
 
 /* ✅ Header */
@@ -94,67 +94,6 @@ header {
     display: block;
 }
 
-/* ✅ Carousel */
-.carousel {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel-track {
-    display: flex;
-    animation: scrollLeft 55s linear infinite;
-    width: max-content;
-}
-
-.carousel-item img {
-    height: 320px;
-    width: auto;
-    transition: none;
-}
-
-/* ✅ About Me Section */
-.about-me {
-    width: 85%;
-    margin: 100px auto;
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #252525;
-    border-radius: 20px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.about-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.about-images {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-images img {
-    width: 250px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.about-text {
-    flex: 1;
-    text-align: left;
-    max-width: 50%;
-    color: #EAEAEA;
-    margin-left: 30px;
-}
-
 /* ✅ Flosser Intro Section - Right-Aligned & Image Formatting */
 .flosser-intro-container {
     display: flex;
@@ -167,23 +106,26 @@ header {
 
 .flosser-intro {
     flex: 1;
-    background: #252525;
+    background: #F5F5F5; /* Light Background */
     padding: 30px;
     border-radius: 10px;
-    font-size: 1rem; /* Reduced 50% */
-    color: #EAEAEA;
-    text-align: right;
+    font-size: 1rem;
+    color: #333; /* Dark Text */
+    text-align: left;
+    border: 1px solid #D0D0D0; /* Subtle Border */
 }
 
 .flosser-intro h3 {
     margin-top: 20px;
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .flosser-intro ul {
     list-style-type: disc;
     padding-left: 20px;
     font-size: 1rem;
+    color: #333;
 }
 
 /* ✅ Adjusted Flosser2 & Flosser3 Image Heights */
@@ -192,18 +134,16 @@ header {
     display: flex;
     justify-content: center;
     gap: 15px;
-    align-items: stretch; /* Ensures images match text height */
 }
 
 .flosser-intro-images img {
-    height: 100%;
-    max-height: 100%;
+    height: 230px; /* Ensures images match text height */
     width: auto;
     border-radius: 10px;
     object-fit: cover; /* Ensures cropping if needed */
 }
 
-/* ✅ Flosser Gallery */
+/* ✅ Lower Images Section */
 .flosser-gallery {
     display: flex;
     flex-direction: column;
@@ -212,73 +152,41 @@ header {
     margin-top: 30px;
 }
 
+.flosser-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 85%;
+}
+
 .flosser-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 85%;
-    background: #1E1E1E;
-    padding: 20px;
+    width: 48%;
+    background: #F5F5F5;
+    padding: 15px;
     border-radius: 10px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #D0D0D0;
 }
 
 .flosser-item img {
-    width: 300px;
+    width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-right: 20px;
+    margin-bottom: 10px;
+    object-fit: cover;
 }
 
 .flosser-item p {
     font-size: 1rem;
-    color: #EAEAEA;
-    text-align: left;
+    color: #333;
 }
 
 /* ✅ Mobile Adjustments */
 @media screen and (max-width: 768px) {
-    .nav-right {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    .dropdown {
-        order: 3;
-    }
-
-    .dropdown-menu {
-        width: 100%;
-        left: 0;
-        transform: none;
-    }
-
-    .about-me {
-        flex-direction: column;
-        padding: 30px;
-        text-align: center;
-    }
-
-    .about-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .about-images {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .about-images img {
-        width: 80%;
-        height: auto;
-    }
-
-    .about-text {
-        max-width: 90%;
-        margin: 20px auto;
-    }
-
     .flosser-intro-container {
         flex-direction: column;
         text-align: center;
@@ -290,18 +198,16 @@ header {
     }
 
     .flosser-intro-images img {
-        max-height: 200px;
+        height: auto;
+        width: 100%;
+    }
+
+    .flosser-row {
+        flex-direction: column;
         width: 100%;
     }
 
     .flosser-item {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .flosser-item img {
-        width: 100%;
-        margin: 0 auto 15px auto;
+        width: 90%;
     }
 }
