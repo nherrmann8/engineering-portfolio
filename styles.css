@@ -5,11 +5,11 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212;
-    color: #EAEAEA;
+    background-color: #121212; /* Dark Theme */
+    color: #EAEAEA; /* Light Text */
 }
 
-/* ✅ Desktop Header (Unchanged) */
+/* ✅ Header */
 header {
     background: #1E1E1E;
     padding: 20px;
@@ -20,7 +20,14 @@ header {
     z-index: 10;
 }
 
-/* ✅ Desktop Navbar (Unchanged) */
+.nav-title {
+    color: #FFFFFF;
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ✅ Navbar */
 .nav-right {
     list-style: none;
     display: flex;
@@ -42,7 +49,7 @@ header {
     color: #FFD700;
 }
 
-/* ✅ Fixed Dropdown Menu - Restored Old Aesthetic */
+/* ✅ Dropdown Menu */
 .dropdown {
     position: relative;
     z-index: 20;
@@ -81,13 +88,12 @@ header {
     border-radius: 5px;
 }
 
-/* ✅ Keep Dropdown Visible on Hover */
 .dropdown:hover .dropdown-menu,
 .dropdown-menu:hover {
     display: block;
 }
 
-/* ✅ Carousel (Unchanged for Desktop) */
+/* ✅ Carousel */
 .carousel {
     width: 100%;
     overflow: hidden;
@@ -106,101 +112,81 @@ header {
     transition: none;
 }
 
-/* ✅ About Me Section (Desktop Version) */
-.about-me {
+/* ✅ Flosser Project Page */
+.flosser-intro {
     width: 85%;
-    margin: 100px auto;
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin: 50px auto;
+    padding: 20px;
     background: #252525;
-    border-radius: 20px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.about-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-}
-
-/* ✅ Self1 & Self2 Side by Side */
-.about-images {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-images img {
-    width: 300px;
-    height: 500px;
-    object-fit: cover;
     border-radius: 10px;
-}
-
-/* ✅ More Buffer Space for Text */
-.about-text {
-    flex: 1;
-    text-align: left;
-    max-width: 50%;
+    text-align: center;
     color: #EAEAEA;
-    margin-left: 30px;
+    font-size: 18px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ✅ Mobile-Specific Layout (Applies ONLY on Screens ≤ 768px) */
+.flosser-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.flosser-item {
+    display: flex;
+    align-items: center;
+    width: 85%;
+    background: #1E1E1E;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.flosser-item img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.flosser-item p {
+    font-size: 16px;
+    color: #EAEAEA;
+    text-align: left;
+}
+
+/* ✅ Mobile Optimization */
 @media screen and (max-width: 768px) {
-    /* ✅ Navbar Adjustments */
     .nav-right {
         flex-direction: column;
         gap: 10px;
         text-align: center;
     }
 
-    /* ✅ Move "Projects" Below "Resume" */
     .dropdown {
-        order: 3; /* Pushes it below Resume */
+        order: 3;
     }
 
-    /* ✅ Dropdown Menu - Full Width on Mobile */
     .dropdown-menu {
         width: 100%;
         left: 0;
         transform: none;
     }
 
-    /* ✅ Stack About Me Images for Mobile */
-    .about-me {
+    .flosser-item {
         flex-direction: column;
-        padding: 30px;
         text-align: center;
+        padding: 20px;
     }
 
-    .about-container {
-        flex-direction: column;
-        align-items: center;
+    .flosser-item img {
+        width: 100%;
+        margin: 0 auto 15px auto;
     }
 
-    .about-images {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .about-images img {
-        width: 80%;
-        height: auto;
-    }
-
-    .about-text {
-        max-width: 90%;
-        margin: 20px auto;
-    }
-
-    /* ✅ Scale Down Carousel Images for Mobile */
     .carousel-item img {
-        height: 200px; /* Reduced size */
+        height: 200px;
         width: auto;
     }
 }
