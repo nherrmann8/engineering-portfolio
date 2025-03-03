@@ -1,72 +1,57 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ JavaScript Loaded Successfully");
+To change the background color of the homepage to white, you'll need to modify the CSS file or inline styles applied to the homepage. Here?s a step-by-step guide, assuming you have the basic structure of an HTML file linked with an external CSS file, or using internal or inline CSS.
 
-    const track = document.querySelector(".carousel-track");
-    const items = document.querySelectorAll(".carousel-item");
+### External CSS
 
-    if (!track || items.length === 0) {
-        console.error("❌ ERROR: Carousel track or items not found!");
-        return;
-    }
+1. **Open your CSS file**: Find the CSS file where the styles for your homepage are defined.
 
-    console.log("✅ Restored Original Carousel Functionality");
+2. **Locate the body or specific container selector**: Identify the CSS rule that sets the background color for your homepage. It might be applied to the `body` tag or a specific container div with an ID or class.
 
-    // Clone first few images and add them to the end to create a seamless loop
-    items.forEach(item => {
-        const clone = item.cloneNode(true);
-        track.appendChild(clone);
-    });
+3. **Change the background color**: Set the `background-color` property to `white`. Here?s an example assuming the background is applied to the entire body:
 
-    let scrollAmount = 0;
-    const scrollSpeed = 0.5;
-    let isPaused = false;
+   ```css
+   /* Existing CSS */
+   body {
+       /* other styles */
+       background-color: white;
+   }
+   ```
 
-    function moveCarousel() {
-        if (!isPaused) {
-            scrollAmount -= scrollSpeed;
-            track.style.transform = `translateX(${scrollAmount}px)`;
+### Internal CSS
 
-            if (Math.abs(scrollAmount) >= items[0].offsetWidth * items.length) {
-                scrollAmount = 0;
-                track.style.transition = "none";
-                track.style.transform = `translateX(0px)`;
-                setTimeout(() => {
-                    track.style.transition = "transform 0.5s linear";
-                }, 50);
-            }
-        }
+If your homepage has internal CSS (within `<style>` tags in the `<head>` section of your HTML file):
 
-        requestAnimationFrame(moveCarousel);
-    }
+1. **Open the HTML file**: Locate the homepage HTML file.
 
-    moveCarousel();
+2. **Modify the `<style>` block**: Adjust the styling within the `<style>` tags.
 
-    // ✅ Stop scrolling on hover
-    document.querySelectorAll(".carousel-item img").forEach(img => {
-        img.addEventListener("mouseenter", () => {
-            isPaused = true;
-        });
-        img.addEventListener("mouseleave", () => {
-            isPaused = false;
-        });
-    });
+   ```html
+   <head>
+       <style>
+           /* Existing style block */
+           body {
+               /* other styles */
+               background-color: white;
+           }
+       </style>
+   </head>
+   ```
 
-    // ✅ Dropdown menu fix for mobile
-    document.querySelectorAll(".dropdown > a").forEach(dropdown => {
-        dropdown.addEventListener("click", function (e) {
-            e.preventDefault();
-            let menu = this.nextElementSibling;
-            menu.style.display = menu.style.display === "block" ? "none" : "block";
-        });
-    });
+### Inline CSS
 
-    // ✅ Close dropdown when clicking outside
-    document.addEventListener("click", function (e) {
-        if (!e.target.closest(".dropdown")) {
-            document.querySelectorAll(".dropdown-menu").forEach(menu => {
-                menu.style.display = "none";
-            });
-        }
-    });
+If the homepage is styled directly with inline CSS:
 
-});
+1. **Open the HTML file**.
+
+2. **Find the body or main container tag**: Look for a `style` attribute on the `<body>` or main tag of the homepage.
+
+3. **Modify the `background-color`**:
+
+   ```html
+   <body style="background-color: white;">
+       <!-- Page content -->
+   </body>
+   ```
+
+### JavaScript (optional)
+
+If you prefer
