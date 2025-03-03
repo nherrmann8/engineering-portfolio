@@ -5,14 +5,14 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: white; /* Changed to white */
+    background-color: black; /* Changed to black */
     color: #EAEAEA; /* Light Text */
     font-size: 1rem; /* Standard Font Size */
 }
 
 /* ? Header */
 header {
-    background: #1E1E1E;
+    background: grey; /* Changed to grey */
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -137,4 +137,4 @@ header {
 }
 
 .flosser-intro-images img {
-    height:
+    height: /*
