@@ -1,33 +1,10 @@
-/* Main background color set to off-white */
-body {
-    background-color: #FDFEFE;
-    color: #333;
+/* Adjust carousel container to ensure adequate padding and overflow handling */
+.carousel-container {
+    padding: 20px;
+    overflow: hidden;
 }
 
-/* Header styles */
-header {
-    background-color: #F2F3F4;
-    color: #212F3D;
-}
-
-/* Button styles in header */
-header button {
-    background-color: #ABB2B9;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-/* Image sizing adjustments */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Accent colors for links */
-a {
-    color: #3498DB;
-    text-decoration: none;
+/* Correct slider animation by ensuring smooth transition */
+.carousel-slide {
+    transition: transform 0.5s ease-in-out;
 }
