@@ -1,10 +1,44 @@
-/* Adjust carousel container to ensure adequate padding and overflow handling */
-.carousel-container {
-    padding: 20px;
-    overflow: hidden;
+/* Existing styles are assumed, adding new ones for fixes */
+.carousel-item img {
+    width: 100%; /* Make images responsive within the carousel */
+    height: auto; /* Maintain aspect ratio */
 }
 
-/* Correct slider animation by ensuring smooth transition */
-.carousel-slide {
-    transition: transform 0.5s ease-in-out;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Added padding for better layout */
+    background-color: #f8f8f8; /* subtle background for header */
+}
+
+.nav-right a {
+    padding: 8px 15px; /* Aesthetic padding for navigation links */
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Darker text for better readability */
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none; /* Hides dropdown by default */
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* subtle shadow for dropdown */
+    z-index: 1000; /* makes sure the dropdown is on top */
+    width: auto; /* adjusts width to the content size */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown menu on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .nav-right {
+        flex-direction: column;
+    }
+
+    .about-me {
+        flex-direction: column;
+    }
 }
