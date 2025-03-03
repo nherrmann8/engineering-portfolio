@@ -1,3 +1,4 @@
+```css
 /* ? Import Modern Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
@@ -5,7 +6,7 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: black; /* Changed to black */
+    background-color: green; /* Changed to green for homepage */
     color: #EAEAEA; /* Light Text */
     font-size: 1rem; /* Standard Font Size */
 }
@@ -136,5 +137,4 @@ header {
     gap: 15px;
 }
 
-.flosser-intro-images img {
-    height: /*
+.flosser-intro-images img
