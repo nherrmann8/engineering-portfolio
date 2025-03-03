@@ -1,4 +1,5 @@
-/* General body settings */
+/* CSS File for Nathan Herrmann Portfolio */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,34 +7,28 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Header styling */
 header {
     background-color: #333;
-    color: white;
+    color: #fff;
     padding: 10px 20px;
     text-align: center;
 }
 
-.nav-title {
-    margin: 0;
-}
-
 .nav-right {
     list-style: none;
-    padding: 0;
+    text-align: right;
 }
 
 .nav-right li {
     display: inline;
-    margin-right: 20px;
+    margin-left: 20px;
 }
 
 .nav-right a {
-    color: white;
+    color: #fff;
     text-decoration: none;
 }
 
-/* Dropdown Menu */
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -46,20 +41,19 @@ header {
     display: block;
 }
 
-/* Carousel styling */
 .carousel {
     overflow: hidden;
-    margin: 20px auto;
-    width: 90%;
+    width: 100%;
 }
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
     min-width: 100%;
+    text-align: center;
 }
 
 .carousel-item img {
@@ -67,24 +61,26 @@ header {
     height: auto;
 }
 
-/* About Me Section */
 .about-me {
-    background-color: #fff;
     padding: 20px;
+    background-color: #fff;
     margin-top: 20px;
 }
 
 .about-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .about-images img {
-    width: 50%;
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
 }
 
 .about-text {
-    width: 45%;
+    flex: 1;
 }
 
 .about-text h2 {
