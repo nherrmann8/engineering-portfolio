@@ -1,40 +1,51 @@
-/* CSS File for Nathan Herrmann Portfolio */
+/* CSS for Nathan Herrmann Portfolio */
+
+/* Reset styles for consistent rendering */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    background: #f4f4f4;
+    color: #333;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background: #fff;
     padding: 10px 20px;
-    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.nav-right {
+.nav-title {
+    font-size: 24px;
+    color: #333;
+}
+
+nav ul {
     list-style: none;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.nav-right li {
-    display: inline;
-    margin-left: 20px;
+nav li {
+    padding: 0 15px;
 }
 
-.nav-right a {
-    color: #fff;
+nav a {
     text-decoration: none;
+    color: #333;
+    font-size: 18px;
 }
 
 .dropdown-menu {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    background: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -53,36 +64,41 @@ header {
 
 .carousel-item {
     min-width: 100%;
-    text-align: center;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item img {
     width: 100%;
-    height: auto;
+    display: block;
 }
 
 .about-me {
     padding: 20px;
-    background-color: #fff;
+    background: #fff;
     margin-top: 20px;
 }
 
 .about-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin: 20px;
 }
 
 .about-images img {
-    width: 200px;
+    width: 50%;
     height: auto;
-    margin-right: 20px;
+    padding: 10px;
 }
 
 .about-text {
     flex: 1;
+    padding: 20px;
 }
 
 .about-text h2 {
-    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.6;
 }
