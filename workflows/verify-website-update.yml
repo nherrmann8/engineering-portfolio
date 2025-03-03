@@ -1,0 +1,26 @@
+name: Verify Website Update
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Playwright
+        run: npm install -g playwright
+
+      - name: Run Website Verification
+        run: |
+          playwright test verify-update.spec.js
+        continue-on-error: true  
+
+      - name: Retry Fix if Test Fails
+        if: failure()
+        run: |
+          node retry-fix.js  
