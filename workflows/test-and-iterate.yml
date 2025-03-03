@@ -1,0 +1,26 @@
+name: Auto-Test & Self-Iterate
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install -g playwright
+
+      - name: Run Automated Tests
+        run: |
+          playwright test homepage.spec.js
+        continue-on-error: true  
+
+      - name: Attempt Fix if Tests Fail
+        if: failure()
+        run: |
+          node retry-fix.js  
