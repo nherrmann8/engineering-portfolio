@@ -1,16 +1,16 @@
-/* ✅ Import Modern Font */
+/* ? Import Modern Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Dark Theme */
+    background-color: white; /* Changed to white */
     color: #EAEAEA; /* Light Text */
     font-size: 1rem; /* Standard Font Size */
 }
 
-/* ✅ Header */
+/* ? Header */
 header {
     background: #1E1E1E;
     padding: 20px;
@@ -28,7 +28,7 @@ header {
     font-weight: bold;
 }
 
-/* ✅ Navbar */
+/* ? Navbar */
 .nav-right {
     list-style: none;
     display: flex;
@@ -50,7 +50,7 @@ header {
     color: #FFD700;
 }
 
-/* ✅ Dropdown Menu */
+/* ? Dropdown Menu */
 .dropdown {
     position: relative;
     z-index: 20;
@@ -94,7 +94,7 @@ header {
     display: block;
 }
 
-/* ✅ Flosser Intro Section - Right-Aligned & Image Formatting */
+/* ? Flosser Intro Section - Right-Aligned & Image Formatting */
 .flosser-intro-container {
     display: flex;
     justify-content: space-between;
@@ -128,7 +128,7 @@ header {
     color: #333;
 }
 
-/* ✅ Adjusted Flosser2 & Flosser3 Image Heights */
+/* ? Adjusted Flosser2 & Flosser3 Image Heights */
 .flosser-intro-images {
     flex: 1;
     display: flex;
@@ -137,77 +137,4 @@ header {
 }
 
 .flosser-intro-images img {
-    height: 230px; /* Ensures images match text height */
-    width: auto;
-    border-radius: 10px;
-    object-fit: cover; /* Ensures cropping if needed */
-}
-
-/* ✅ Lower Images Section */
-.flosser-gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.flosser-row {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    width: 85%;
-}
-
-.flosser-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 48%;
-    background: #F5F5F5;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid #D0D0D0;
-}
-
-.flosser-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    object-fit: cover;
-}
-
-.flosser-item p {
-    font-size: 1rem;
-    color: #333;
-}
-
-/* ✅ Mobile Adjustments */
-@media screen and (max-width: 768px) {
-    .flosser-intro-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .flosser-intro-images {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .flosser-intro-images img {
-        height: auto;
-        width: 100%;
-    }
-
-    .flosser-row {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .flosser-item {
-        width: 90%;
-    }
-}
+    height:
