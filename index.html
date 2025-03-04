@@ -1,70 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nathan Herrmann Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1 class="nav-title">Nathan Herrmann Portfolio</h1>
-        <nav>
-            <ul class="nav-right">
-                <li><a href="#">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">Projects ▼</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="flosser.html">quip Water Flosser</a></li>
-                        <li><a href="quip-ultra.html">quip Ultra</a></li>
-                        <li><a href="shark-evopower.html">Shark EvoPower</a></li>
-                        <li><a href="artificial-stomach.html">Artificial Stomach</a></li>
-                        <li><a href="zio-irhythm.html">Zio iRhythm</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Resume</a></li>
-            </ul>
-        </nav>
-    </header>
+Only the "styles.css" file should be modified to change the background color of the home page.
 
-    <main>
-        <section class="scrolling-gallery">
-            <div class="carousel">
-                <div class="carousel-track">
-                    <div class="carousel-item">
-                        <a href="flosser.html"><img src="images/flosser1.jpg" alt="quip Water Flosser"></a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="quip-ultra.html"><img src="images/ultra1.jpg" alt="quip Ultra"></a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="shark-evopower.html"><img src="images/shark1.jpg" alt="Shark EvoPower"></a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="artificial-stomach.html"><img src="images/stomach1.jpg" alt="Artificial Stomach"></a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="zio-irhythm.html"><img src="images/zio1.jpg" alt="Zio iRhythm"></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+To change the background color to black, you need to add or modify the following rule to the CSS file:
 
-        <section class="about-me">
-            <div class="about-container">
-                <div class="about-images">
-                    <img src="images/self1.jpg" alt="Self 1">
-                    <img src="images/self2.jpg" alt="Self 2">
-                </div>
-                <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>Hello! I’m Nathan Herrmann, a passionate mechanical engineer specializing in product design and innovation. 
-                    With hands-on experience across various projects, I strive to blend functionality with creativity in all my work.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+```css
+body {
+    background-color: #000;
+}
+```
 
-    <script defer src="script.js"></script>
-</body>
-</html>
+If the `body` selector already exists in the styles.css, simply add or change the `background-color` property to `#000` (which stands for black). If the `body` selector does not exist, you need to create it and then add the `background-color` property.
+
+It's important to note that this will change the background color for all pages using this stylesheet, not just the homepage. If the background color change should only apply to the homepage, a unique class could be added to the body on the index.html page and then referenced in the CSS. These would be the changes: 
+
+index.html:
+```html
+<body class="home-page">
+```
+
+styles.css:
+```css
+.home-page {
+    background-color: #000;
+}
+```
