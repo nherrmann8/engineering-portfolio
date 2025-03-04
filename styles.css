@@ -1,104 +1,25 @@
-/* CSS for Nathan Herrmann Portfolio */
+Only the "styles.css" file should be modified to change the background color of the home page.
 
-/* Reset styles for consistent rendering */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+To change the background color to black, you need to add or modify the following rule to the CSS file:
 
+```css
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    color: #333;
+    background-color: #000;
 }
+```
 
-header {
-    background: #fff;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+If the `body` selector already exists in the styles.css, simply add or change the `background-color` property to `#000` (which stands for black). If the `body` selector does not exist, you need to create it and then add the `background-color` property.
 
-.nav-title {
-    font-size: 24px;
-    color: #333;
-}
+It's important to note that this will change the background color for all pages using this stylesheet, not just the homepage. If the background color change should only apply to the homepage, a unique class could be added to the body on the index.html page and then referenced in the CSS. These would be the changes: 
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-}
+index.html:
+```html
+<body class="home-page">
+```
 
-nav li {
-    padding: 0 15px;
+styles.css:
+```css
+.home-page {
+    background-color: #000;
 }
-
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-size: 18px;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background: white;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 1000;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.carousel {
-    overflow: hidden;
-    width: 100%;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-    min-width: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item img {
-    width: 100%;
-    display: block;
-}
-
-.about-me {
-    padding: 20px;
-    background: #fff;
-    margin-top: 20px;
-}
-
-.about-container {
-    display: flex;
-    margin: 20px;
-}
-
-.about-images img {
-    width: 50%;
-    height: auto;
-    padding: 10px;
-}
-
-.about-text {
-    flex: 1;
-    padding: 20px;
-}
-
-.about-text h2 {
-    margin-bottom: 10px;
-}
-
-.about-text p {
-    font-size: 16px;
-    line-height: 1.6;
-}
+```
